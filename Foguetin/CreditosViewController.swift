@@ -13,13 +13,13 @@ class CreditosViewController : UIViewController{
         starImageView.tintColor = .cyan
         starImageView.frame = CGRect(x: x, y: y, width: s, height: s)
         view.addSubview(starImageView)
-        let coffeeShakeAnimation = CABasicAnimation(keyPath: "position")
-        coffeeShakeAnimation.duration = d
-        coffeeShakeAnimation.repeatCount = Float(x)
-        coffeeShakeAnimation.autoreverses = true
-        coffeeShakeAnimation.fromValue = NSValue(cgPoint: CGPoint(x: starImageView.center.x - CGFloat(xm), y: starImageView.center.y - CGFloat(ym)))
-        coffeeShakeAnimation.toValue = NSValue(cgPoint: CGPoint(x: starImageView.center.x + CGFloat(xm), y: starImageView.center.y + CGFloat(ym)))
-        starImageView.layer.add(coffeeShakeAnimation, forKey: "position")
+        let starAnimation = CABasicAnimation(keyPath: "position")
+        starAnimation.duration = d
+        starAnimation.repeatCount = Float(x)
+        starAnimation.autoreverses = true
+        starAnimation.fromValue = NSValue(cgPoint: CGPoint(x: starImageView.center.x - CGFloat(xm), y: starImageView.center.y - CGFloat(ym)))
+        starAnimation.toValue = NSValue(cgPoint: CGPoint(x: starImageView.center.x + CGFloat(xm), y: starImageView.center.y + CGFloat(ym)))
+        starImageView.layer.add(starAnimation, forKey: "position")
     }
     
     override func viewDidLoad() {
