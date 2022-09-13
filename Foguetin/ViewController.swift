@@ -11,6 +11,7 @@ class ViewController: UIViewController {
 
     let startView = StartView()
     let tabBarVC = MainTabBarController()
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
