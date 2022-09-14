@@ -7,18 +7,58 @@
 
 import UIKit
 
-class NaveViewController : UIViewController{
+class NaveViewController : UIViewController {
+
+    private let solarSystemTable : UITableView = {
+        let table = UITableView(frame: .zero, style: .grouped)
+        table.register(CollectionViewTableViewCell.self, forCellReuseIdentifier: CollectionViewTableViewCell.identifier)
+        return table
+    }()
     
     override func viewDidLoad() {
+        super.viewDidLoad()
         view.backgroundColor = UIColor(red: 0, green: 0.051, blue: 0.165, alpha: 1)
-        
-        //só para marcar
-        let label = UILabel(frame: CGRect(x: 50, y:100, width: 200, height: 20))
-        view.addSubview(label)
-        label.text = "NAVE"
-        label.textColor = .white
+        view.addSubview(solarSystemTable)
+
+        solarSystemTable.delegate = self
+        solarSystemTable.dataSource = self
     }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        solarSystemTable.frame = view.bounds
+        solarSystemTable.backgroundColor = UIColor(red: 0.3, green: 0, blue: 0, alpha: 0)
+    }
+
 }
+
+extension NaveViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: CollectionViewTableViewCell.identifier, for: indexPath) as? CollectionViewTableViewCell else {
+            return UITableViewCell()
+        }
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 200
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 40
+    }
+    
+}
+
 
 
 // MARK: - Preview

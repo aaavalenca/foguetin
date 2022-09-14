@@ -11,7 +11,7 @@ class StartView : UIView {
     
     let startButton = UIButton(configuration: .filled())
     let tabVC = MainTabBarController()
-    
+        
     weak var delegate : StartViewDelegate?
         
     override init(frame: CGRect) {
@@ -30,7 +30,7 @@ class StartView : UIView {
         self.addSubview(startButton)
     }
     
-    func setupViewAttributes(){
+    func setupViewAttributes(){    
         self.backgroundColor = UIColor(red: 0, green: 0.051, blue: 0.165, alpha: 1)
         startButton.setTitle("VAMOS LÁ!", for: .normal)
     }

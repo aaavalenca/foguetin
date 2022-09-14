@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8A00F84928D2255C00B8F5EC /* CollectionViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A00F84828D2255C00B8F5EC /* CollectionViewTableViewCell.swift */; };
 		8A22B9EF28CF7DB0000A7E4E /* BreguecosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A22B9EE28CF7DB0000A7E4E /* BreguecosViewController.swift */; };
 		8A22B9F128CF7DC1000A7E4E /* CreditosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A22B9F028CF7DC1000A7E4E /* CreditosViewController.swift */; };
 		8A22B9F328CFBACB000A7E4E /* StartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A22B9F228CFBACB000A7E4E /* StartView.swift */; };
@@ -23,6 +24,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8A00F84828D2255C00B8F5EC /* CollectionViewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewTableViewCell.swift; sourceTree = "<group>"; };
 		8A22B9EE28CF7DB0000A7E4E /* BreguecosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreguecosViewController.swift; sourceTree = "<group>"; };
 		8A22B9F028CF7DC1000A7E4E /* CreditosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditosViewController.swift; sourceTree = "<group>"; };
 		8A22B9F228CFBACB000A7E4E /* StartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartView.swift; sourceTree = "<group>"; };
@@ -76,6 +78,7 @@
 				8A22B9F228CFBACB000A7E4E /* StartView.swift */,
 				8A22B9F628CFD074000A7E4E /* StartViewDelegate.swift */,
 				8A6E6A4B28CF7C81001677AB /* NaveViewController.swift */,
+				8A00F84828D2255C00B8F5EC /* CollectionViewTableViewCell.swift */,
 				8A22B9EE28CF7DB0000A7E4E /* BreguecosViewController.swift */,
 				8A22B9F028CF7DC1000A7E4E /* CreditosViewController.swift */,
 				8A22B9F428CFCA0C000A7E4E /* MainTabBarController.swift */,
@@ -160,6 +163,7 @@
 			files = (
 				8A22B9F328CFBACB000A7E4E /* StartView.swift in Sources */,
 				8A22B9EF28CF7DB0000A7E4E /* BreguecosViewController.swift in Sources */,
+				8A00F84928D2255C00B8F5EC /* CollectionViewTableViewCell.swift in Sources */,
 				8A22B9F528CFCA0C000A7E4E /* MainTabBarController.swift in Sources */,
 				8A6E6A4C28CF7C81001677AB /* NaveViewController.swift in Sources */,
 				8A6E6A3828CF62B8001677AB /* ViewController.swift in Sources */,
