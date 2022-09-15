@@ -13,6 +13,8 @@ class NaveViewController : UIViewController {
     
     let cockpit = UIImageView()
     
+    let containerView = UIView()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor(red: 0, green: 0.051, blue: 0.165, alpha: 1)
@@ -24,15 +26,16 @@ class NaveViewController : UIViewController {
     }
     
     func setupViewHierarchy(){
-        view.addSubview(collectionView)
-        view.addSubview(cockpit)
+        self.view.addSubview(containerView)
+        self.view.addSubview(collectionView)
+        self.view.addSubview(cockpit)
     }
     
     func setupViewAttributes(){
         collectionView.delegate = self
         collectionView.dataSource = self
         
-        collectionView.backgroundColor = UIColor(red: 0.1, green: 0.1, blue: 0.1, alpha: 0.2)
+        collectionView.backgroundColor = UIColor(red: 0.1, green: 0.1, blue: 0.1, alpha: 0)
         
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
@@ -43,26 +46,38 @@ class NaveViewController : UIViewController {
         cockpit.image = UIImage(named: "cockpit2 1")
         cockpit.contentMode = .scaleAspectFit
         
+//        containerView.backgroundColor = UIColor(red: 1, green: 0, blue: 0, alpha: 0.3)
     }
     
     
     func setupConstraints(){
         
+        // Hacking constraint to center
+        containerView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            containerView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor),
+            containerView.bottomAnchor.constraint(equalTo: cockpit.topAnchor),
+            containerView.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor),
+            containerView.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor)
+        ])
+        
         // Planets constraints
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            collectionView.topAnchor.constraint(equalTo: cockpit.topAnchor, constant: -210),
-            collectionView.bottomAnchor.constraint(equalTo: cockpit.topAnchor, constant: -10),
-            collectionView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
-            collectionView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor)
+            collectionView.centerXAnchor.constraint(equalTo: containerView.centerXAnchor),
+            collectionView.centerYAnchor.constraint(equalTo: containerView.centerYAnchor),
+            collectionView.topAnchor.constraint(equalTo: containerView.topAnchor),
+            collectionView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor),
+            collectionView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
+            collectionView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor)
         ])
         
         // Cockpit constraint
         cockpit.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            cockpit.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor, constant: 60),
-            cockpit.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
-            cockpit.leadingAnchor.constraint(equalTo: self.view.leadingAnchor)
+            cockpit.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: 60),
+            cockpit.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor),
+            cockpit.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor)
         ])
     }
     
