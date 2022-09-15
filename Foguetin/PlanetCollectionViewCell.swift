@@ -30,7 +30,7 @@ class PlanetCollectionViewCell: UICollectionViewCell {
     }
     
     func setupViewAttributes(){
-        imageView.image = UIImage(named: "planeta1")
+//        imageView.image = UIImage(named: "planeta1")
         imageView.contentMode = .scaleAspectFit
     }
     
@@ -42,6 +42,10 @@ class PlanetCollectionViewCell: UICollectionViewCell {
             imageView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             imageView.trailingAnchor.constraint(equalTo: self.trailingAnchor)
         ])
+    }
+    
+    func configure(planet : UIImage){
+        self.imageView.image = planet
     }
     
     func setupAdditionalConfiguration(){

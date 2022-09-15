@@ -15,6 +15,13 @@ class NaveViewController : UIViewController {
     
     let containerView = UIView()
     
+    let planets = [UIImage(named: "planeta1"),
+                   UIImage(named: "planeta2"),
+                   UIImage(named: "planeta3")
+                   ]
+    
+    let stars = StarsView()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor(red: 0, green: 0.051, blue: 0.165, alpha: 1)
@@ -26,6 +33,8 @@ class NaveViewController : UIViewController {
     }
     
     func setupViewHierarchy(){
+        self.view.addSubview(stars)
+        stars.configure(width: Int(view.bounds.maxX), height: Int(view.bounds.maxY))
         self.view.addSubview(containerView)
         self.view.addSubview(collectionView)
         self.view.addSubview(cockpit)
@@ -93,7 +102,8 @@ extension NaveViewController : UICollectionViewDelegate, UICollectionViewDataSou
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PlanetCollectionViewCell.identifier, for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PlanetCollectionViewCell.identifier, for: indexPath) as! PlanetCollectionViewCell
+        cell.configure(planet: planets[indexPath.row] ?? UIImage())
         return cell
     }
     
