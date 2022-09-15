@@ -20,6 +20,7 @@
 		8A6E6A4928CF696C001677AB /* UIView+Preview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6E6A4728CF696C001677AB /* UIView+Preview.swift */; };
 		8A6E6A4A28CF696C001677AB /* UIViewController+Preview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6E6A4828CF696C001677AB /* UIViewController+Preview.swift */; };
 		8A6E6A4C28CF7C81001677AB /* NaveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6E6A4B28CF7C81001677AB /* NaveViewController.swift */; };
+		8E2F297A28D260D9006A5F66 /* BreguecosCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E2F297928D260D9006A5F66 /* BreguecosCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		8A6E6A4728CF696C001677AB /* UIView+Preview.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Preview.swift"; sourceTree = "<group>"; };
 		8A6E6A4828CF696C001677AB /* UIViewController+Preview.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Preview.swift"; sourceTree = "<group>"; };
 		8A6E6A4B28CF7C81001677AB /* NaveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaveViewController.swift; sourceTree = "<group>"; };
+		8E2F297928D260D9006A5F66 /* BreguecosCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreguecosCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +79,7 @@
 				8A22B9F628CFD074000A7E4E /* StartViewDelegate.swift */,
 				8A6E6A4B28CF7C81001677AB /* NaveViewController.swift */,
 				8A22B9EE28CF7DB0000A7E4E /* BreguecosViewController.swift */,
+				8E2F297928D260D9006A5F66 /* BreguecosCollectionViewCell.swift */,
 				8A22B9F028CF7DC1000A7E4E /* CreditosViewController.swift */,
 				8A22B9F428CFCA0C000A7E4E /* MainTabBarController.swift */,
 				8A6E6A3C28CF62B9001677AB /* Assets.xcassets */,
@@ -168,6 +171,7 @@
 				8A6E6A4928CF696C001677AB /* UIView+Preview.swift in Sources */,
 				8A6E6A4A28CF696C001677AB /* UIViewController+Preview.swift in Sources */,
 				8A6E6A3428CF62B8001677AB /* AppDelegate.swift in Sources */,
+				8E2F297A28D260D9006A5F66 /* BreguecosCollectionViewCell.swift in Sources */,
 				8A6E6A3628CF62B8001677AB /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
