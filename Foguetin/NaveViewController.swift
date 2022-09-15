@@ -160,6 +160,19 @@ extension NaveViewController : UICollectionViewDelegate, UICollectionViewDataSou
         infoView.image = infoPlanets[i]
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        collectionView.deselectItem(at: indexPath, animated: false)
+        
+        if (indexPath[1] == 1){
+            print("Vai para o planeta Kaô")
+        }
+        if (indexPath[1] == 2){
+            print("Vai para o planeta Zoé")
+        }
+        if (indexPath[1] == 3){
+            print("Vai para o planeta Betesga")
+        }
+    }
     
     
 }
