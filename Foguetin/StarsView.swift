@@ -44,7 +44,6 @@ class StarsView: UIView {
             let ym = Float.random(in: 0...10)
             let d = Double.random(in: 15...25)
             let size = Int.random(in: 7...12)
-            print(xr)
             starAnimation(x: xr, y: yr, xm: xm, ym: ym, d: d, s: size)
             num = num - 1
         }
