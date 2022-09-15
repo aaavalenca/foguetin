@@ -24,7 +24,6 @@ class CollectionViewTableViewCell: UITableViewCell {
         contentView.addSubview(collectionView)
         collectionView.delegate = self
         collectionView.dataSource = self
-        collectionView.backgroundColor = UIColor(red: 0, green: 0.051, blue: 0.165, alpha: 1)
 
     }
     
@@ -35,6 +34,10 @@ class CollectionViewTableViewCell: UITableViewCell {
     override func layoutSubviews() {
         super.layoutSubviews()
         collectionView.frame = contentView.bounds
+        collectionView.backgroundColor = UIColor.clear
+//        collectionView.backgroundColor = UIColor(red: 0, green: 0.051, blue: 0.165, alpha: 1)
+
+
     }
     
 }

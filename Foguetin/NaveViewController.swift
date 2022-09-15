@@ -9,52 +9,77 @@ import UIKit
 
 class NaveViewController : UIViewController {
 
-    private let solarSystemTable : UITableView = {
-        let table = UITableView(frame: .zero, style: .grouped)
-        table.register(CollectionViewTableViewCell.self, forCellReuseIdentifier: CollectionViewTableViewCell.identifier)
-        return table
-    }()
+    let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
+    
+    let cockpit = UIImageView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor(red: 0, green: 0.051, blue: 0.165, alpha: 1)
-        view.addSubview(solarSystemTable)
-
-        solarSystemTable.delegate = self
-        solarSystemTable.dataSource = self
+        
+        setupViewHierarchy()
+        setupViewAttributes()
+        setupConstraints()
+        setupAdditionalConfiguration()
     }
     
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        solarSystemTable.frame = view.bounds
-        solarSystemTable.backgroundColor = UIColor(red: 0.3, green: 0, blue: 0, alpha: 0)
+    func setupViewHierarchy(){
+        view.addSubview(collectionView)
+        view.addSubview(cockpit)
+    }
+    
+    func setupViewAttributes(){
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        
+        collectionView.backgroundColor = UIColor(red: 0.1, green: 0.1, blue: 0.1, alpha: 0.2)
+        
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+        layout.itemSize = CGSize(width: 200, height: 200)
+        collectionView.collectionViewLayout = layout
+        collectionView.register(PlanetCollectionViewCell.self, forCellWithReuseIdentifier: PlanetCollectionViewCell.identifier)
+        
+        cockpit.image = UIImage(named: "cockpit2 1")
+        cockpit.contentMode = .scaleAspectFit
+        
+    }
+    
+    
+    func setupConstraints(){
+        
+        // Planets constraints
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            collectionView.topAnchor.constraint(equalTo: cockpit.topAnchor, constant: -210),
+            collectionView.bottomAnchor.constraint(equalTo: cockpit.topAnchor, constant: -10),
+            collectionView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
+            collectionView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor)
+        ])
+        
+        // Cockpit constraint
+        cockpit.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            cockpit.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor, constant: 60),
+            cockpit.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
+            cockpit.leadingAnchor.constraint(equalTo: self.view.leadingAnchor)
+        ])
+    }
+    
+    func setupAdditionalConfiguration(){
+        
     }
 
 }
 
-extension NaveViewController: UITableViewDelegate, UITableViewDataSource {
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+extension NaveViewController : UICollectionViewDelegate, UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 3
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: CollectionViewTableViewCell.identifier, for: indexPath) as? CollectionViewTableViewCell else {
-            return UITableViewCell()
-        }
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PlanetCollectionViewCell.identifier, for: indexPath)
         return cell
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 200
-    }
-    
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 40
     }
     
 }
@@ -71,7 +96,6 @@ struct ViewController_Preview_Nave: PreviewProvider {
         // view controller using programmatic UI
         Group {
             NaveViewController().showPreview().previewDevice("iPhone 11")
-            //            ViewController().showPreview().previewDevice("iPhone 11").previewInterfaceOrientation(.landscapeLeft)
         }
     }
 }
