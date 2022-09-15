@@ -102,8 +102,8 @@ class NaveViewController : UIViewController {
         NSLayoutConstraint.activate([
             containerView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor),
             containerView.bottomAnchor.constraint(equalTo: cockpit.topAnchor),
-            containerView.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor, constant: 200),
-            containerView.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor, constant: -200)
+            containerView.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor),
+            containerView.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor)
         ])
         
         
@@ -153,13 +153,16 @@ extension NaveViewController : UICollectionViewDelegate, UICollectionViewDataSou
     }
 
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        for cell in collectionView.visibleCells {
-          if let row = collectionView.indexPath(for: cell)?.item {
-              infoView.image = infoPlanets[row]
-              print(row)
-          }
-        }
+        let visibleRect = CGRect(origin: collectionView.contentOffset, size: collectionView.bounds.size)
+        let visiblePoint = CGPoint(x: visibleRect.midX, y: visibleRect.midY)
+        let visibleIndexPath = collectionView.indexPathForItem(at: visiblePoint)
+        
+        let i : Int = visibleIndexPath?[1] ?? 0
+
+        infoView.image = infoPlanets[i]
     }
+    
+    
     
 }
 
