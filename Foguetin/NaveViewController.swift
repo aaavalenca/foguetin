@@ -164,6 +164,7 @@ extension NaveViewController : UICollectionViewDelegate, UICollectionViewDataSou
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: false)
+        
         storyViewController.setStory(numStory: indexPath[1])
         storyViewController.modalPresentationStyle = .fullScreen
         storyViewController.modalTransitionStyle = .crossDissolve
