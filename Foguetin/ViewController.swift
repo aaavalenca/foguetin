@@ -23,6 +23,7 @@ class ViewController: UIViewController {
 extension ViewController: StartViewDelegate{
     func goToShip() {
         tabBarVC.modalPresentationStyle = .fullScreen
+        tabBarVC.selectedIndex = 1
         present(tabBarVC, animated: true)
     }
 }

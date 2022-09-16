@@ -68,9 +68,7 @@ class StoryViewController: UIViewController {
         
     }
     
-    func setupViewAttributes(){
-        balao.contentMode = .scaleAspectFit
-        voltar.setTitle("VOLTAR", for: .normal)
+    func setupViewAttributes(){        voltar.setTitle("VOLTAR", for: .normal)
         continuar.setTitle("CONTINUAR", for: .normal)
         
         stackView.spacing = 30
@@ -88,14 +86,15 @@ class StoryViewController: UIViewController {
     }
     
     func setupConstraints(){
-        
         //MARK: - Balao Constraints
+        balao.contentMode = .scaleAspectFit
         balao.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             balao.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor),
             balao.centerXAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.centerXAnchor),
             balao.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 20),
-            balao.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -20)
+            balao.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -20),
+            balao.heightAnchor.constraint(equalTo: balao.widthAnchor, multiplier: 0.85)
         ])
         
         //MARK: - Texto do balao Constraints
@@ -104,24 +103,24 @@ class StoryViewController: UIViewController {
             story.topAnchor.constraint(equalTo: balao.topAnchor, constant: 20),
             story.trailingAnchor.constraint(equalTo: balao.trailingAnchor, constant: -30),
             story.leadingAnchor.constraint(equalTo: balao.leadingAnchor, constant: 30),
-            story.bottomAnchor.constraint(equalTo: balao
-                .bottomAnchor, constant: -130)
+            story.bottomAnchor.constraint(equalTo: rightButton.topAnchor)
+//            story.heightAnchor.constraint(equalToConstant: 150)
         ])
         
         //MARK: - Botao esquerda Constraints
         leftButton.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             leftButton.leadingAnchor.constraint(equalTo: story.leadingAnchor, constant: 30),
-            leftButton.topAnchor.constraint(equalTo: story
-                .bottomAnchor)
+            leftButton.bottomAnchor.constraint(equalTo: balao
+                .bottomAnchor, constant: -90)
         ])
         
         //MARK: - Botao Direita Constraints
         rightButton.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             rightButton.trailingAnchor.constraint(equalTo: story.trailingAnchor, constant: -30),
-            rightButton.topAnchor.constraint(equalTo: story
-                .bottomAnchor)
+            rightButton.bottomAnchor.constraint(equalTo: balao
+                .bottomAnchor, constant: -90)
         ])
         
         //MARK: - Cachorra Constraints
