@@ -7,17 +7,39 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UIScrollViewDelegate {
 
     let startView = StartView()
     let tabBarVC = MainTabBarController()
     
+    let opening = OpeningScrollView()
+    var width = 0.0
+    var height = 0.0
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view = startView
-        startView.delegate = self
+        
+        width = self.view.frame.size.width
+        self.view = opening
+        opening.delegate = self
+        
+        setupViewAttributes()
+
     }
+    
+    func setupViewAttributes(){
+        //MARK: - ScrollView
+        opening.contentSize = CGSize(width: width, height: (width * 11.35))
+        let bottomOffset = CGPoint(x: 0, y: opening.contentSize.height - opening.bounds.height + opening.contentInset.bottom)
+        opening.setContentOffset(bottomOffset, animated: true)
+        opening.shipDeparture()
+
+    }
+    
+    override func viewDidLayoutSubviews() {
+    }
+
+    
 }
 
 extension ViewController: StartViewDelegate{
