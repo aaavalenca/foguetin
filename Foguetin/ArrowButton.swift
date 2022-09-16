@@ -9,7 +9,7 @@ import UIKit
 
 class ArrowButton: UIButton {
     
-    var side = true
+    var rightSide = true
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -22,17 +22,17 @@ class ArrowButton: UIButton {
     
     func setRight(){
         self.setImage(UIImage(named: "buttonArrowRight"), for: .normal)
-        side = true
+        rightSide = true
     }
     
     func setLeft(){
-        self.setImage(UIImage(named: "buttonArrowLeft"), for: .normal)
-        side = false
+        self.setImage(UIImage(named: "buttonArrowLeftPressed"), for: .normal)
+        rightSide = false
     }
     
     
     @objc func onPress(){
-        if (side) {
+        if (rightSide) {
             self.setImage(UIImage(named: "buttonArrowRightPressed"), for: .normal)
         } else {
             self.setImage(UIImage(named: "buttonArrowLeftPressed"), for: .normal)
@@ -40,12 +40,19 @@ class ArrowButton: UIButton {
     }
     
     func unPress(){
-        if (side) {
+        if (rightSide) {
             self.setImage(UIImage(named: "buttonArrowRight"), for: .normal)
         } else {
             self.setImage(UIImage(named: "buttonArrowLeft"), for: .normal)
         }
     }
     
+    func resetButtons(){
+        if(rightSide){
+            self.setImage(UIImage(named: "buttonArrowRight"), for: .normal)
+        } else {
+            self.setImage(UIImage(named: "buttonArrowLeftPressed"), for: .normal)
+        }
+    }
 
 }

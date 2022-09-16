@@ -165,6 +165,8 @@ class StoryViewController: UIViewController {
     @objc func returnToShip(sender: UIButton) {
         self.navigationController?.popToRootViewController(animated: true)
         self.dismiss(animated: true, completion: nil)
+        leftButton.resetButtons()
+        rightButton.resetButtons()
     }
     
     @objc func goToGame(sender: UIButton) {
