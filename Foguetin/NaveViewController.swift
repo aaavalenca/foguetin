@@ -9,6 +9,8 @@ import UIKit
 
 class NaveViewController : UIViewController {
 
+    let storyViewController = StoryViewController()
+    
     let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
     
     let cockpit = UIImageView()
@@ -47,7 +49,7 @@ class NaveViewController : UIViewController {
     
     func setupViewHierarchy(){
         self.view.addSubview(stars)
-        stars.configure(width: Int(view.bounds.maxX), height: Int(view.bounds.maxY))
+        stars.configure(width: Int(view.bounds.maxY), height: Int(view.bounds.maxX))
         
         self.view.addSubview(containerView)
         containerView.addSubview(collectionView)
@@ -87,7 +89,7 @@ class NaveViewController : UIViewController {
         // Cockpit constraint
         cockpit.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            cockpit.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor),
+            cockpit.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor, constant: 50),
             cockpit.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
             cockpit.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
             cockpit.heightAnchor.constraint(equalTo: cockpit.widthAnchor, multiplier: 1.11)
@@ -162,16 +164,10 @@ extension NaveViewController : UICollectionViewDelegate, UICollectionViewDataSou
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: false)
-        
-        if (indexPath[1] == 1){
-            print("Vai para o planeta Kaô")
-        }
-        if (indexPath[1] == 2){
-            print("Vai para o planeta Zoé")
-        }
-        if (indexPath[1] == 3){
-            print("Vai para o planeta Betesga")
-        }
+        storyViewController.setStory(numStory: indexPath[1])
+        storyViewController.modalPresentationStyle = .fullScreen
+        storyViewController.modalTransitionStyle = .crossDissolve
+        present(storyViewController, animated: true)
     }
     
     
@@ -188,7 +184,7 @@ struct ViewController_Preview_Nave: PreviewProvider {
     static var previews: some View {
         // view controller using programmatic UI
         Group {
-            NaveViewController().showPreview().previewDevice("iPhone 11").previewInterfaceOrientation(.portraitUpsideDown)
+            NaveViewController().showPreview().previewDevice("iPhone 11").previewInterfaceOrientation(.portrait)
         }
     }
 }
