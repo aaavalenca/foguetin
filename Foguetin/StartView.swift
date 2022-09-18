@@ -12,7 +12,7 @@ class StartView : UIView {
     let startButton = UIButton(configuration: .filled())
     let tabVC = MainTabBarController()
         
-    weak var delegate : StartViewDelegate?
+//    weak var delegate : StartViewDelegate?
         
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -50,7 +50,7 @@ class StartView : UIView {
     }
     
     @objc func tappedButton(sendeR: UIButton){
-        delegate?.goToShip()
+//        delegate?.goToShip()
     }
     
 }

@@ -7,13 +7,22 @@
 
 import UIKit
 
-class OpeningScrollView: UIScrollView, UIScrollViewDelegate {
+class OpeningScrollView: UIScrollView {
     
     let backgroundImage = UIImageView(image: UIImage(named: "abertura"))
         
     let jumpButton = UIButton(configuration: .filled())
 
     let foguetin = UIImageView(image: UIImage(named: "foguetin"))
+    
+    let tabBarVC = MainTabBarController()
+
+    weak var myDelegate : OpeningScrollViewDelegate?
+    override weak var delegate: UIScrollViewDelegate? {
+        didSet{
+            myDelegate = delegate as? OpeningScrollViewDelegate
+        }
+    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -31,7 +40,7 @@ class OpeningScrollView: UIScrollView, UIScrollViewDelegate {
     
     func setupViewHierarchy(){
         self.addSubview(backgroundImage)
-        backgroundImage.addSubview(jumpButton)
+        self.addSubview(jumpButton)
         backgroundImage.addSubview(foguetin)
     }
     
@@ -73,8 +82,12 @@ class OpeningScrollView: UIScrollView, UIScrollViewDelegate {
         foguetin.layer.add(shipAnimation, forKey: "position")
     }
     
-    func setupAdditionalConfiguration(){
-        
+    func setupAdditionalConfiguration() {
+        jumpButton.addTarget(self, action: #selector(tappedButton), for: .touchUpInside)
+    }
+    
+    @objc func tappedButton(sendeR: UIButton){
+        myDelegate?.goToShip()
     }
 
     

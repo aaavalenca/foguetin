@@ -13,7 +13,6 @@
 		8A22B9F128CF7DC1000A7E4E /* CreditosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A22B9F028CF7DC1000A7E4E /* CreditosViewController.swift */; };
 		8A22B9F328CFBACB000A7E4E /* StartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A22B9F228CFBACB000A7E4E /* StartView.swift */; };
 		8A22B9F528CFCA0C000A7E4E /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A22B9F428CFCA0C000A7E4E /* MainTabBarController.swift */; };
-		8A22B9F728CFD074000A7E4E /* StartViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A22B9F628CFD074000A7E4E /* StartViewDelegate.swift */; };
 		8A6E6A3428CF62B8001677AB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6E6A3328CF62B8001677AB /* AppDelegate.swift */; };
 		8A6E6A3628CF62B8001677AB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6E6A3528CF62B8001677AB /* SceneDelegate.swift */; };
 		8A6E6A3828CF62B8001677AB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6E6A3728CF62B8001677AB /* ViewController.swift */; };
@@ -25,6 +24,7 @@
 		8A944E8328D3DFAA00319D60 /* StoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A944E8228D3DFAA00319D60 /* StoryViewController.swift */; };
 		8AF9354428D4A83300DF26F8 /* ArrowButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF9354328D4A83300DF26F8 /* ArrowButton.swift */; };
 		8AF9354628D4BE0800DF26F8 /* OpeningScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF9354528D4BE0800DF26F8 /* OpeningScrollView.swift */; };
+		8AF9354828D79EA700DF26F8 /* OpeningScrollViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF9354728D79EA700DF26F8 /* OpeningScrollViewDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,7 +34,6 @@
 		8A22B9F028CF7DC1000A7E4E /* CreditosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditosViewController.swift; sourceTree = "<group>"; };
 		8A22B9F228CFBACB000A7E4E /* StartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartView.swift; sourceTree = "<group>"; };
 		8A22B9F428CFCA0C000A7E4E /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
-		8A22B9F628CFD074000A7E4E /* StartViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewDelegate.swift; sourceTree = "<group>"; };
 		8A6E6A3028CF62B8001677AB /* Foguetin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Foguetin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A6E6A3328CF62B8001677AB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8A6E6A3528CF62B8001677AB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -48,6 +47,7 @@
 		8A944E8228D3DFAA00319D60 /* StoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryViewController.swift; sourceTree = "<group>"; };
 		8AF9354328D4A83300DF26F8 /* ArrowButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrowButton.swift; sourceTree = "<group>"; };
 		8AF9354528D4BE0800DF26F8 /* OpeningScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpeningScrollView.swift; sourceTree = "<group>"; };
+		8AF9354728D79EA700DF26F8 /* OpeningScrollViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpeningScrollViewDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,9 +84,9 @@
 				8A6E6A3528CF62B8001677AB /* SceneDelegate.swift */,
 				8A6E6A3728CF62B8001677AB /* ViewController.swift */,
 				8A22B9F228CFBACB000A7E4E /* StartView.swift */,
-				8A22B9F628CFD074000A7E4E /* StartViewDelegate.swift */,
 				8A6E6A4B28CF7C81001677AB /* NaveViewController.swift */,
 				8AF9354528D4BE0800DF26F8 /* OpeningScrollView.swift */,
+				8AF9354728D79EA700DF26F8 /* OpeningScrollViewDelegate.swift */,
 				8A00F84C28D260CB00B8F5EC /* PlanetCollectionViewCell.swift */,
 				8A22B9EE28CF7DB0000A7E4E /* BreguecosViewController.swift */,
 				8A22B9F028CF7DC1000A7E4E /* CreditosViewController.swift */,
@@ -181,7 +181,6 @@
 				8A6E6A3828CF62B8001677AB /* ViewController.swift in Sources */,
 				8A22B9F128CF7DC1000A7E4E /* CreditosViewController.swift in Sources */,
 				8AF9354428D4A83300DF26F8 /* ArrowButton.swift in Sources */,
-				8A22B9F728CFD074000A7E4E /* StartViewDelegate.swift in Sources */,
 				8A6E6A4928CF696C001677AB /* UIView+Preview.swift in Sources */,
 				8A00F84D28D260CB00B8F5EC /* PlanetCollectionViewCell.swift in Sources */,
 				8A6E6A4A28CF696C001677AB /* UIViewController+Preview.swift in Sources */,
@@ -189,6 +188,7 @@
 				8A6E6A3428CF62B8001677AB /* AppDelegate.swift in Sources */,
 				8A944E8328D3DFAA00319D60 /* StoryViewController.swift in Sources */,
 				8A6E6A3628CF62B8001677AB /* SceneDelegate.swift in Sources */,
+				8AF9354828D79EA700DF26F8 /* OpeningScrollViewDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

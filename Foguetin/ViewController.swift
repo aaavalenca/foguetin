@@ -42,7 +42,7 @@ class ViewController: UIViewController, UIScrollViewDelegate {
     
 }
 
-extension ViewController: StartViewDelegate{
+extension ViewController: OpeningScrollViewDelegate {
     func goToShip() {
         tabBarVC.modalPresentationStyle = .fullScreen
         tabBarVC.selectedIndex = 1
