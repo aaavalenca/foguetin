@@ -9,4 +9,5 @@ import UIKit
 
 protocol OpeningScrollViewDelegate : UIScrollViewDelegate {
     func goToShip()
+    func getReady()
 }

@@ -9,9 +9,7 @@ import UIKit
 
 class ViewController: UIViewController, UIScrollViewDelegate {
 
-    let startView = StartView()
     let tabBarVC = MainTabBarController()
-    
     let opening = OpeningScrollView()
     var width = 0.0
     var height = 0.0
@@ -47,6 +45,9 @@ extension ViewController: OpeningScrollViewDelegate {
         tabBarVC.modalPresentationStyle = .fullScreen
         tabBarVC.selectedIndex = 1
         present(tabBarVC, animated: true)
+    }
+    func getReady() {
+        print("Onboarding")
     }
 }
 

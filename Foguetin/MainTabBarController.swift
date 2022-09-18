@@ -23,7 +23,7 @@
 
             self.tabBar.isTranslucent = false
             self.tabBar.unselectedItemTintColor = .black
-            self.tabBar.tintColor = .white
+            self.tabBar.tintColor = .green
             self.tabBar.backgroundColor = UIColor(red: 0.627, green: 0.145, blue: 0.173, alpha: 1.0)
                         
             guard let items = self.tabBar.items else {

@@ -13,6 +13,8 @@ class OpeningScrollView: UIScrollView {
         
     let jumpButton = UIButton(configuration: .filled())
 
+    let readyButton = UIButton(configuration: .filled())
+    
     let foguetin = UIImageView(image: UIImage(named: "foguetin"))
     
     let tabBarVC = MainTabBarController()
@@ -41,14 +43,18 @@ class OpeningScrollView: UIScrollView {
     func setupViewHierarchy(){
         self.addSubview(backgroundImage)
         self.addSubview(jumpButton)
+        self.addSubview(readyButton)
         backgroundImage.addSubview(foguetin)
     }
     
     func setupViewAttributes()
     {
-        self.backgroundColor = .black
+        
         jumpButton.tintColor = .red
         jumpButton.setTitle("PULAR", for: .normal)
+        
+        readyButton.tintColor = .blue
+        readyButton.setTitle("PREPARAR", for: .normal)
         
         foguetin.frame = CGRect(x: backgroundImage.frame.midX - 30, y: 320, width: 57, height: 181)
     }
@@ -69,6 +75,12 @@ class OpeningScrollView: UIScrollView {
             jumpButton.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -40)
             ])
         
+        readyButton.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            readyButton.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+            readyButton.topAnchor.constraint(equalTo: self.foguetin.bottomAnchor, constant: 40)
+            ])
+        
         
     }
     
@@ -84,10 +96,16 @@ class OpeningScrollView: UIScrollView {
     
     func setupAdditionalConfiguration() {
         jumpButton.addTarget(self, action: #selector(tappedButton), for: .touchUpInside)
+        
+        readyButton.addTarget(self, action: #selector(tappedButton2), for: .touchUpInside)
     }
     
     @objc func tappedButton(sendeR: UIButton){
         myDelegate?.goToShip()
+    }
+    
+    @objc func tappedButton2(sendeR: UIButton){
+        myDelegate?.getReady()
     }
 
     
