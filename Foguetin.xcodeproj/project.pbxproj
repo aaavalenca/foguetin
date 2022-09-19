@@ -24,6 +24,7 @@
 		8AF9354428D4A83300DF26F8 /* ArrowButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF9354328D4A83300DF26F8 /* ArrowButton.swift */; };
 		8AF9354628D4BE0800DF26F8 /* OpeningScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF9354528D4BE0800DF26F8 /* OpeningScrollView.swift */; };
 		8AF9354828D79EA700DF26F8 /* OpeningScrollViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF9354728D79EA700DF26F8 /* OpeningScrollViewDelegate.swift */; };
+		8AF9354A28D8AB5D00DF26F8 /* SnappingCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF9354928D8AB5D00DF26F8 /* SnappingCollectionViewLayout.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,7 @@
 		8AF9354328D4A83300DF26F8 /* ArrowButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrowButton.swift; sourceTree = "<group>"; };
 		8AF9354528D4BE0800DF26F8 /* OpeningScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpeningScrollView.swift; sourceTree = "<group>"; };
 		8AF9354728D79EA700DF26F8 /* OpeningScrollViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpeningScrollViewDelegate.swift; sourceTree = "<group>"; };
+		8AF9354928D8AB5D00DF26F8 /* SnappingCollectionViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnappingCollectionViewLayout.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +84,7 @@
 				8A6E6A3528CF62B8001677AB /* SceneDelegate.swift */,
 				8A6E6A3728CF62B8001677AB /* ViewController.swift */,
 				8A6E6A4B28CF7C81001677AB /* NaveViewController.swift */,
+				8AF9354928D8AB5D00DF26F8 /* SnappingCollectionViewLayout.swift */,
 				8AF9354528D4BE0800DF26F8 /* OpeningScrollView.swift */,
 				8AF9354728D79EA700DF26F8 /* OpeningScrollViewDelegate.swift */,
 				8A00F84C28D260CB00B8F5EC /* PlanetCollectionViewCell.swift */,
@@ -180,6 +183,7 @@
 				8A6E6A4928CF696C001677AB /* UIView+Preview.swift in Sources */,
 				8A00F84D28D260CB00B8F5EC /* PlanetCollectionViewCell.swift in Sources */,
 				8A6E6A4A28CF696C001677AB /* UIViewController+Preview.swift in Sources */,
+				8AF9354A28D8AB5D00DF26F8 /* SnappingCollectionViewLayout.swift in Sources */,
 				8AF9354628D4BE0800DF26F8 /* OpeningScrollView.swift in Sources */,
 				8A6E6A3428CF62B8001677AB /* AppDelegate.swift in Sources */,
 				8A944E8328D3DFAA00319D60 /* StoryViewController.swift in Sources */,

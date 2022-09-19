@@ -19,6 +19,8 @@ class OpeningScrollView: UIScrollView {
     
     let tabBarVC = MainTabBarController()
 
+    var bottomScreen = 0.0
+    
     weak var myDelegate : OpeningScrollViewDelegate?
     override weak var delegate: UIScrollViewDelegate? {
         didSet{
@@ -31,9 +33,8 @@ class OpeningScrollView: UIScrollView {
         
         setupViewHierarchy()
         setupViewAttributes()
-        setupConstraints()
+//        setupConstraints()
         setupAdditionalConfiguration()
-        
     }
     
     required init?(coder: NSCoder) {
@@ -78,10 +79,14 @@ class OpeningScrollView: UIScrollView {
         readyButton.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             readyButton.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            readyButton.topAnchor.constraint(equalTo: self.foguetin.bottomAnchor, constant: 40)
+            readyButton.topAnchor.constraint(equalTo: self.topAnchor, constant: bottomScreen - 150)
             ])
-        
-        
+//        backgroundImage.contentMode = .scaleAspectFit
+    }
+    
+    func setBottomScreen(width: Double, height : Double){
+        bottomScreen = height
+        setupConstraints()
     }
     
     func shipDeparture(){

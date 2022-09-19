@@ -11,8 +11,8 @@ class NaveViewController : UIViewController {
 
     let storyViewController = StoryViewController()
     
-    let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
-    
+    let collectionView = UICollectionView(frame: .zero, collectionViewLayout: SnappingCollectionViewLayout())
+
     let cockpit = UIImageView()
     
     let containerView = UIView()
@@ -36,7 +36,7 @@ class NaveViewController : UIViewController {
     let screenContainerView = UIView()
     
     let infoView = UIImageView()
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor(red: 0, green: 0.051, blue: 0.165, alpha: 1)
@@ -152,15 +152,16 @@ extension NaveViewController : UICollectionViewDelegate, UICollectionViewDataSou
         return cell
     }
 
-    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        let visibleRect = CGRect(origin: collectionView.contentOffset, size: collectionView.bounds.size)
-        let visiblePoint = CGPoint(x: visibleRect.midX, y: visibleRect.midY)
-        let visibleIndexPath = collectionView.indexPathForItem(at: visiblePoint)
-        
-        let i : Int = visibleIndexPath?[1] ?? 0
-
-        infoView.image = infoPlanets[i]
-    }
+//    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+//        let visibleRect = CGRect(origin: collectionView.contentOffset, size: collectionView.bounds.size)
+//        let visiblePoint = CGPoint(x: visibleRect.midX, y: visibleRect.midY)
+//        let visibleIndexPath = collectionView.indexPathForItem(at: visiblePoint)
+//
+//        let i : Int = visibleIndexPath?[1] ?? 0
+//
+//        infoView.image = infoPlanets[i]
+//    }
+    
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: false)
@@ -171,6 +172,48 @@ extension NaveViewController : UICollectionViewDelegate, UICollectionViewDataSou
         present(storyViewController, animated: true)
     }
     
+    
+    func scrollToNearestVisibleCollectionViewCell() {
+        collectionView.decelerationRate = UIScrollView.DecelerationRate.fast
+        let visibleCenterPositionOfScrollView = Float(collectionView.contentOffset.x + (collectionView.bounds.size.width / 2))
+            var closestCellIndex = -1
+            var closestDistance: Float = .greatestFiniteMagnitude
+            for i in 0..<collectionView.visibleCells.count {
+                let cell = collectionView.visibleCells[i]
+                let cellWidth = cell.bounds.size.width
+                let cellCenter = Float(cell.frame.origin.x + cellWidth / 2)
+                let distance: Float = fabsf(visibleCenterPositionOfScrollView - cellCenter)
+                if distance < closestDistance {
+                    closestDistance = distance
+                    closestCellIndex = collectionView.indexPath(for: cell)!.row
+                }
+            }
+            if closestCellIndex != -1 {
+                collectionView.scrollToItem(at: IndexPath(row: closestCellIndex, section: 0), at: .centeredHorizontally, animated: true)
+            }
+            infoView.image = infoPlanets[closestCellIndex]
+
+        }
+    
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        self.scrollToNearestVisibleCollectionViewCell()
+    }
+
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        if !decelerate {
+            self.scrollToNearestVisibleCollectionViewCell()
+        }
+    }
+    
+//    func changePlanetInfo(){
+//        let visibleRect = CGRect(origin: collectionView.contentOffset, size: collectionView.bounds.size)
+//        let visiblePoint = CGPoint(x: visibleRect.midX, y: visibleRect.midY)
+//        let visibleIndexPath = collectionView.indexPathForItem(at: visiblePoint)
+//
+//        let i : Int = visibleIndexPath?[1] ?? 0
+//
+//        infoView.image = infoPlanets[i]
+//    }
     
 }
 

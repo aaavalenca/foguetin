@@ -18,6 +18,7 @@ class ViewController: UIViewController, UIScrollViewDelegate {
         super.viewDidLoad()
         
         width = self.view.frame.size.width
+        height = self.view.frame.size.height
         self.view = opening
         opening.delegate = self
         
@@ -28,8 +29,9 @@ class ViewController: UIViewController, UIScrollViewDelegate {
     func setupViewAttributes(){
         //MARK: - ScrollView
         opening.contentSize = CGSize(width: width, height: (width * 11.35))
-        let bottomOffset = CGPoint(x: 0, y: opening.contentSize.height - opening.bounds.height + opening.contentInset.bottom)
+        let bottomOffset = CGPoint(x: 0, y: opening.contentSize.height)
         opening.setContentOffset(bottomOffset, animated: true)
+        opening.setBottomScreen(width: width, height: height)
         opening.shipDeparture()
 
     }
