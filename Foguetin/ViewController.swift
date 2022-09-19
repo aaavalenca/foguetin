@@ -21,7 +21,6 @@ class ViewController: UIViewController, UIScrollViewDelegate {
         height = self.view.frame.size.height
         self.view = opening
         opening.delegate = self
-        
         setupViewAttributes()
 
     }

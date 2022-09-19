@@ -68,7 +68,8 @@ class StoryViewController: UIViewController {
         
     }
     
-    func setupViewAttributes(){        voltar.setTitle("VOLTAR", for: .normal)
+    func setupViewAttributes(){
+        voltar.setTitle("VOLTAR", for: .normal)
         continuar.setTitle("CONTINUAR", for: .normal)
         
         stackView.spacing = 30

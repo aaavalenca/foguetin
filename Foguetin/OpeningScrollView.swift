@@ -16,7 +16,8 @@ class OpeningScrollView: UIScrollView {
     let readyButton = UIButton(configuration: .filled())
     
     let foguetin = UIImageView(image: UIImage(named: "foguetin"))
-    
+    let up = UIImageView(image: UIImage(systemName: "hand.point.up.fill"))
+
     let tabBarVC = MainTabBarController()
 
     var bottomScreen = 0.0
@@ -46,6 +47,8 @@ class OpeningScrollView: UIScrollView {
         self.addSubview(jumpButton)
         self.addSubview(readyButton)
         backgroundImage.addSubview(foguetin)
+        backgroundImage.addSubview(up)
+
     }
     
     func setupViewAttributes()
@@ -58,6 +61,9 @@ class OpeningScrollView: UIScrollView {
         readyButton.setTitle("PREPARAR", for: .normal)
         
         foguetin.frame = CGRect(x: backgroundImage.frame.midX - 30, y: 320, width: 57, height: 181)
+        
+        up.tintColor = .yellow
+        up.frame = CGRect(x: backgroundImage.frame.maxX - 60, y: backgroundImage.frame.maxY - 600, width: 60, height: 70)
     }
     
     func setupConstraints(){
@@ -97,6 +103,16 @@ class OpeningScrollView: UIScrollView {
                                             CGPoint(x: backgroundImage.frame.midX,
                     y: 400))
         foguetin.layer.add(shipAnimation, forKey: "position")
+        
+        
+        let handAnimation = CABasicAnimation(keyPath: "position")
+        handAnimation.duration = 0.5
+        handAnimation.repeatCount = 1000
+        handAnimation.autoreverses = true
+        handAnimation.fromValue = NSValue(cgPoint: CGPoint(x: up.center.x, y: up.center.y - 10))
+        handAnimation.toValue = NSValue(cgPoint: CGPoint(x: up.center.x, y: up.center.y + 10))
+        up.layer.add(handAnimation, forKey: "position")
+        
     }
     
     func setupAdditionalConfiguration() {
