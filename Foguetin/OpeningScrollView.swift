@@ -96,13 +96,31 @@ class OpeningScrollView: UIScrollView {
     }
     
     func shipDeparture(){
+        
+        let groupAnimation = CAAnimationGroup()
+        groupAnimation.beginTime = CACurrentMediaTime()
+        groupAnimation.duration = 7
+        
+        let shipStopped = CABasicAnimation(keyPath: "position")
+        shipStopped.duration = 4
+        shipStopped.fromValue = NSValue(cgPoint: CGPoint(x: backgroundImage.frame.midX, y: backgroundImage.frame.maxY * 0.9))
+        shipStopped.toValue = NSValue(cgPoint: CGPoint(x: backgroundImage.frame.midX, y: backgroundImage.frame.maxY * 0.9))
+                
+        let rotate = CABasicAnimation(keyPath: "transform.rotation")
+        rotate.duration = 2
+        rotate.fromValue = .pi/1.0
+        rotate.toValue = 0.0
+        
         let shipAnimation = CABasicAnimation(keyPath: "position")
+        shipAnimation.beginTime = shipStopped.beginTime + shipStopped.duration
         shipAnimation.duration = 7
         shipAnimation.fromValue = NSValue(cgPoint: CGPoint(x: backgroundImage.frame.midX, y: backgroundImage.frame.maxY * 0.9))
         shipAnimation.toValue = NSValue(cgPoint:
                                             CGPoint(x: backgroundImage.frame.midX,
                     y: 400))
-        foguetin.layer.add(shipAnimation, forKey: "position")
+        
+        groupAnimation.animations = [shipStopped, rotate, shipAnimation]
+        foguetin.layer.add(groupAnimation, forKey: nil)
         
         
         let handAnimation = CABasicAnimation(keyPath: "position")
