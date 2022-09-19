@@ -55,7 +55,8 @@ class OpeningScrollView: UIScrollView {
     {
         
         jumpButton.tintColor = .red
-        jumpButton.setTitle("PULAR", for: .normal)
+        jumpButton.setTitle("PULAR\nAPRESENTAÇÃO", for: .normal)
+        jumpButton.titleLabel?.textAlignment = .center
         
         readyButton.tintColor = .blue
         readyButton.setTitle("PREPARAR", for: .normal)
@@ -63,7 +64,7 @@ class OpeningScrollView: UIScrollView {
         foguetin.frame = CGRect(x: backgroundImage.frame.midX - 30, y: 320, width: 57, height: 181)
         
         up.tintColor = .yellow
-        up.frame = CGRect(x: backgroundImage.frame.maxX - 60, y: backgroundImage.frame.maxY - 600, width: 60, height: 70)
+        up.frame = CGRect(x: backgroundImage.frame.maxX - 70, y: backgroundImage.frame.maxY - 600, width: 60, height: 70)
     }
     
     func setupConstraints(){
@@ -79,7 +80,7 @@ class OpeningScrollView: UIScrollView {
         jumpButton.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             jumpButton.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            jumpButton.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -40)
+            jumpButton.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -190)
             ])
         
         readyButton.translatesAutoresizingMaskIntoConstraints = false
@@ -99,7 +100,7 @@ class OpeningScrollView: UIScrollView {
         
         let groupAnimation = CAAnimationGroup()
         groupAnimation.beginTime = CACurrentMediaTime()
-        groupAnimation.duration = 7
+        groupAnimation.duration = 14
         
         let shipStopped = CABasicAnimation(keyPath: "position")
         shipStopped.duration = 4
