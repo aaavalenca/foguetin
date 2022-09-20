@@ -13,6 +13,20 @@ class BreguecosViewController : UIViewController{
     let cockpitTopContainer = UIView()
     let collectionViewBreguecos = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
     
+    lazy var viewpopUpWindo: PopUpWindoW = {
+        let view = PopUpWindoW()
+        view.layer.cornerRadius = 5.0
+        view.delegate = self
+        return view
+    }()
+    
+    let visualEffetctView: UIVisualEffectView = {
+        let blurEffect = UIBlurEffect(style: .light)
+        let view = UIVisualEffectView(effect: blurEffect)
+        return view
+    }()
+    
+    
     override func viewDidLoad() {
         view.backgroundColor = UIColor(red: 0, green: 0.051, blue: 0.165, alpha: 1)
         
@@ -20,8 +34,7 @@ class BreguecosViewController : UIViewController{
         setupViewsAttributes()
         setupConstraints()
         
-        label.text = "BREGUECOS"
-        label.textColor = .white
+        
     }
     
     func setupViewsHierarchy() {
@@ -30,27 +43,32 @@ class BreguecosViewController : UIViewController{
         view.addSubview(cockpitTopContainer)
         view.addSubview(collectionViewBreguecos)
         
+        
         cockpitTopContainer.addSubview(cockpitTop)
         cockpitTopContainer.addSubview(label)
         
     }
     
     func setupViewsAttributes() {
-        cockpitTop.contentMode = .scaleAspectFill
+        label.text = "BREGUECOS"
+        label.textColor = .white
+        
+        cockpitTop.contentMode = .scaleToFill
         cockpitBottom.contentMode = .scaleToFill
         
-        collectionViewBreguecos.delegate = self
-        collectionViewBreguecos.dataSource = self
-       
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
-//        layout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
         layout.estimatedItemSize = CGSize(width: 100, height: 121)
         layout.minimumInteritemSpacing = 10
-        
+        collectionViewBreguecos.delegate = self
+        collectionViewBreguecos.dataSource = self
         collectionViewBreguecos.collectionViewLayout = layout
         collectionViewBreguecos.backgroundColor = .clear
         collectionViewBreguecos.register(BreguecosCollectionViewCell.self, forCellWithReuseIdentifier: BreguecosCollectionViewCell.identifier)
+        
+        
+        visualEffetctView.alpha = 0.9
+        
     }
     
     func setupConstraints() {
@@ -78,10 +96,10 @@ class BreguecosViewController : UIViewController{
         
         collectionViewBreguecos.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            collectionViewBreguecos.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor),
-            collectionViewBreguecos.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor),
-            collectionViewBreguecos.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -60),
-            collectionViewBreguecos.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 60)
+            collectionViewBreguecos.topAnchor.constraint(equalTo: cockpitTopContainer.bottomAnchor, constant: 30),
+            collectionViewBreguecos.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -80),
+            collectionViewBreguecos.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 70),
+            collectionViewBreguecos.bottomAnchor.constraint(equalTo: cockpitBottom.topAnchor)
         ])
         
         cockpitBottom.translatesAutoresizingMaskIntoConstraints = false
@@ -91,12 +109,13 @@ class BreguecosViewController : UIViewController{
             cockpitBottom.heightAnchor.constraint(equalToConstant: 60),
             cockpitBottom.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
+        
     }
 }
 
 extension BreguecosViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return 3
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -104,8 +123,51 @@ extension BreguecosViewController: UICollectionViewDelegate, UICollectionViewDat
         return cell
     }
     
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        view.addSubview(visualEffetctView)
+        view.addSubview(viewpopUpWindo)
+        
+        viewpopUpWindo.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            viewpopUpWindo.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            viewpopUpWindo.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            viewpopUpWindo.heightAnchor.constraint(equalToConstant: view.frame.width - 64),
+            viewpopUpWindo.widthAnchor.constraint(equalToConstant: view.frame.width - 64)
+        ])
+        
+        visualEffetctView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            visualEffetctView.topAnchor.constraint(equalTo: view.topAnchor),
+            visualEffetctView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            visualEffetctView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            visualEffetctView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+        ])
+        
+        viewpopUpWindo.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
+        viewpopUpWindo.alpha = 0.9
+        
+        UIView.animate(withDuration: 0.4){
+            self.visualEffetctView.alpha = 0.9
+            self.viewpopUpWindo.alpha = 0.9
+            self.viewpopUpWindo.transform = CGAffineTransform.identity
+        }
+        
+    }
 }
+
+extension BreguecosViewController: PopUpDelegate {
+    func handleDismissal() {
+        UIView.animate(withDuration: 0.4, animations: {
+            self.visualEffetctView.alpha = 0
+            self.viewpopUpWindo.alpha = 0
+            self.viewpopUpWindo.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
+        }) { (_) in
+            self.viewpopUpWindo.removeFromSuperview()
+        }
+    }
+}
+
+
 
 
 // MARK: - Preview
