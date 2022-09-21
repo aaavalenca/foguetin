@@ -38,6 +38,8 @@ class NaveViewController : UIViewController {
     let infoView = UIImageView()
     
     public let gameJP = GameView()
+    public let guacamole = GuacamoleView()
+
     
     override func viewDidLoad() {
         super.viewDidLoad()

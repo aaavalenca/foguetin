@@ -171,20 +171,28 @@ class StoryViewController: UIViewController {
     }
     
     @objc func goToGame(sender: UIButton) {
-        self.view = NaveViewController().gameJP
+        print(numStory)
+        if (numStory == 1){
+            print("ASTEROIDE")
+        } else if (numStory == 2){
+            self.view = NaveViewController().gameJP
+        } else {
+            self.view = NaveViewController().guacamole
+        }
     }
     
     func setStory(numStory : Int){
+        self.numStory = numStory
         if (numStory == 1){
-        mission[0] = "O planeta Kaô\nprecisa muito da\nnossa ajuda..."
-        mission[1] = "Tente acertá-la\nno momento em que\nela sair do buraco."
+        mission[0] = "Asteroides\nestão a caminho do\nplaneta Kaô!"
+        mission[1] = "Chegue lá\na tempo de evacuar\nseus habitantes."
         } else if (numStory == 2){
         print(numStory)
-        mission[0] = "Os habitantes\ndo planeta Zo'és\nestão em perigo!"
-        mission[1] = "Tente acertá-la\nno momento em que\nela sair do buraco."
+        mission[0] = "A temperatura\ndo planeta Zo'és\nestá doida!"
+        mission[1] = "Equilibre seu\ntermostato sempre\nque mudar."
         } else {
-        mission[0] = "O planeta Bestega\nestá sofrendo com uma\npraga alienígena..."
-        mission[1] = "Tente acertá-la\nno momento em que\nela sair do buraco."
+        mission[0] = "O planeta Bestega\nsofre de uma praga\nalienígena!"
+        mission[1] = "Tente acertá-la\nno momento em que\nsair do buraco."
         }
         story.text = mission[0]
     }

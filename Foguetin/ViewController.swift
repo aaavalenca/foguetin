@@ -13,7 +13,7 @@ class ViewController: UIViewController, UIScrollViewDelegate {
     let opening = OpeningScrollView()
     var width = 0.0
     var height = 0.0
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
