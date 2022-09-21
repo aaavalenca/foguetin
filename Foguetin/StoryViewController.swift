@@ -171,7 +171,7 @@ class StoryViewController: UIViewController {
     }
     
     @objc func goToGame(sender: UIButton) {
-
+        self.view = NaveViewController().gameJP
     }
     
     func setStory(numStory : Int){

@@ -11,7 +11,7 @@ class NaveViewController : UIViewController {
 
     let storyViewController = StoryViewController()
     
-    let collectionView = UICollectionView(frame: .zero, collectionViewLayout: SnappingCollectionViewLayout())
+    let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
 
     let cockpit = UIImageView()
     
@@ -36,7 +36,9 @@ class NaveViewController : UIViewController {
     let screenContainerView = UIView()
     
     let infoView = UIImageView()
-        
+    
+    public let gameJP = GameView()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor(red: 0, green: 0.051, blue: 0.165, alpha: 1)
@@ -151,16 +153,6 @@ extension NaveViewController : UICollectionViewDelegate, UICollectionViewDataSou
         cell.configure(planet: planets[indexPath.row] ?? UIImage())
         return cell
     }
-
-//    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-//        let visibleRect = CGRect(origin: collectionView.contentOffset, size: collectionView.bounds.size)
-//        let visiblePoint = CGPoint(x: visibleRect.midX, y: visibleRect.midY)
-//        let visibleIndexPath = collectionView.indexPathForItem(at: visiblePoint)
-//
-//        let i : Int = visibleIndexPath?[1] ?? 0
-//
-//        infoView.image = infoPlanets[i]
-//    }
     
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -204,16 +196,6 @@ extension NaveViewController : UICollectionViewDelegate, UICollectionViewDataSou
             self.scrollToNearestVisibleCollectionViewCell()
         }
     }
-    
-//    func changePlanetInfo(){
-//        let visibleRect = CGRect(origin: collectionView.contentOffset, size: collectionView.bounds.size)
-//        let visiblePoint = CGPoint(x: visibleRect.midX, y: visibleRect.midY)
-//        let visibleIndexPath = collectionView.indexPathForItem(at: visiblePoint)
-//
-//        let i : Int = visibleIndexPath?[1] ?? 0
-//
-//        infoView.image = infoPlanets[i]
-//    }
     
 }
 
