@@ -20,7 +20,7 @@ class StoryViewController: UIViewController {
     let stackView = UIStackView()
     
     
-//    let flappy = GameScene()
+    let flappy = GameScene()
     let gameJP = GameView()
     let guacamole = GuacamoleView()
     
@@ -193,22 +193,21 @@ class StoryViewController: UIViewController {
     @objc func goToGame(sender: UIButton) {
         if (numStory == 1){
             print("ASTEROIDE")
-            
-//            if let view = self.view as! SKView? {
-////               let scene = GameScene(size: view.bounds.size)
-//               flappy.scaleMode = .aspectFill
-//               view.presentScene(flappy)
-//               view.ignoresSiblingOrder = true
-//               view.showsFPS = false
-//               view.showsNodeCount = false
-//               view.showsPhysics = false
-//
-//            }
+            let skview = SKView()
+            self.view = skview
+//               let scene = GameScene(size: view.bounds.size)
+            flappy.scaleMode = .aspectFill
+            skview.presentScene(flappy)
+            skview.ignoresSiblingOrder = true
+            skview.showsFPS = false
+            skview.showsNodeCount = false
+            skview.showsPhysics = false
             
         } else if (numStory == 2){
             self.view = gameJP
         } else {
             self.view = guacamole
+            guacamole.startGame()
         }
     }
     

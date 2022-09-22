@@ -176,7 +176,7 @@ class GuacamoleView: UIView {
     }
     
     func setupAdditionalConfiguration () {
-        startGame()
+        
         button0.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
         button1.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
         button2.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
@@ -189,6 +189,7 @@ class GuacamoleView: UIView {
         button9.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
         button10.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
         button11.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
+        
     }
     
     func startGame() {

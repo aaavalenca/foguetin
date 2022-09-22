@@ -1,17 +1,12 @@
-//
-//  GameView.swift
-//  game with placeholders
-//
-//  Created by Jpsmor on 19/09/22.
-//
-
 import UIKit
 
 class GameView : UIView {
     
     let stopButton = UIButton()
     let startButton = UIButton()
-    let gameBarView = UIView()
+    let termometroTubo = UIImageView(image: UIImage(named: "termometroTubo"))
+    let termometroBase = UIImageView(image: UIImage(named: "termometroBase"))
+    let planetaDerretendo = UIImageView(image: UIImage(named: "planetaDerretendo"))
     let timeLabel = UILabel()
     let targetView = UIView()
     let cursorView = UIView()
@@ -19,12 +14,12 @@ class GameView : UIView {
     let winView = WinView()
     let loseView = LoseView()
     
+    weak var delegate: GameViewDelegate?
+
     var targetPositionY: NSLayoutConstraint?
     var cursorPositionY: NSLayoutConstraint?
     var auxMovement: CGFloat = 1
     var movement: Timer?
-    
-    weak var delegate : GameViewDelegate?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -41,8 +36,10 @@ class GameView : UIView {
     private func setViewsHierarchy() {
         addSubview(stopButton)
         addSubview(startButton)
-        addSubview(gameBarView)
-        gameBarView.addSubview(targetView)
+        addSubview(planetaDerretendo)
+        addSubview(termometroBase)
+        addSubview(termometroTubo)
+        termometroTubo.addSubview(targetView)
         addSubview(cursorView)
     }
     
@@ -55,27 +52,28 @@ class GameView : UIView {
         startButton.setTitle("Start", for: .normal)
         startButton.layer.cornerRadius = 25
         
-        gameBarView.backgroundColor = .systemPink
-        gameBarView.layer.cornerRadius = 10
-        targetView.backgroundColor = .systemOrange
-        cursorView.backgroundColor = .brown
+        termometroTubo.layer.cornerRadius = 10
+        targetView.backgroundColor = .systemYellow
+        cursorView.backgroundColor = .black
         
     }
     
     func setContraints() {
         stopButton.translatesAutoresizingMaskIntoConstraints = false
         startButton.translatesAutoresizingMaskIntoConstraints = false
-        gameBarView.translatesAutoresizingMaskIntoConstraints = false
+        termometroTubo.translatesAutoresizingMaskIntoConstraints = false
         timeLabel.translatesAutoresizingMaskIntoConstraints = false
         targetView.translatesAutoresizingMaskIntoConstraints = false
         cursorView.translatesAutoresizingMaskIntoConstraints = false
+        planetaDerretendo.translatesAutoresizingMaskIntoConstraints = false
+        termometroBase.translatesAutoresizingMaskIntoConstraints = false
         
         
-        targetPositionY = targetView.centerYAnchor.constraint(equalTo: centerYAnchor, constant: 0)
+        targetPositionY = targetView.centerYAnchor.constraint(equalTo: centerYAnchor, constant: -70)
         
         targetPositionY!.isActive = true
         
-        cursorPositionY = cursorView.centerYAnchor.constraint(equalTo: centerYAnchor, constant: 0)
+        cursorPositionY = cursorView.centerYAnchor.constraint(equalTo: centerYAnchor, constant: -70)
         
         cursorPositionY!.isActive = true
         
@@ -95,16 +93,24 @@ class GameView : UIView {
         
         //Views
         NSLayoutConstraint.activate([
-            gameBarView.centerXAnchor.constraint(equalTo: centerXAnchor),
-            gameBarView.centerYAnchor.constraint(equalTo: centerYAnchor),
-            gameBarView.heightAnchor.constraint(equalToConstant: 300),
-            gameBarView.widthAnchor.constraint(equalToConstant: 30),
-            targetView.centerXAnchor.constraint(equalTo: gameBarView.centerXAnchor),
-            targetView.widthAnchor.constraint(equalToConstant: 30),
+            termometroTubo.trailingAnchor.constraint(equalTo: planetaDerretendo.trailingAnchor, constant: -45),
+            termometroBase.topAnchor.constraint(equalTo: planetaDerretendo.topAnchor),
+            termometroTubo.heightAnchor.constraint(equalToConstant: 203.7),
+            termometroTubo.widthAnchor.constraint(equalToConstant: 42),
+            termometroBase.widthAnchor.constraint(equalToConstant: 107.05),
+            termometroBase.heightAnchor.constraint(equalToConstant: 282.8),
+            termometroTubo.topAnchor.constraint(equalTo: termometroBase.topAnchor, constant: 25),
+            termometroTubo.centerXAnchor.constraint(equalTo: termometroBase.centerXAnchor, constant: 2),
+            planetaDerretendo.centerXAnchor.constraint(equalTo: centerXAnchor),
+            planetaDerretendo.centerYAnchor.constraint(equalTo: centerYAnchor),
+            planetaDerretendo.widthAnchor.constraint(equalToConstant: 378),
+            planetaDerretendo.heightAnchor.constraint(equalToConstant: 378),
+            targetView.centerXAnchor.constraint(equalTo: termometroTubo.centerXAnchor),
+            targetView.widthAnchor.constraint(equalToConstant: 50),
             targetView.heightAnchor.constraint(equalToConstant: 10),
-            cursorView.widthAnchor.constraint(equalToConstant: 40),
+            cursorView.widthAnchor.constraint(equalToConstant: 60),
             cursorView.heightAnchor.constraint(equalToConstant: 5),
-            cursorView.centerXAnchor.constraint(equalTo: gameBarView.centerXAnchor)
+            cursorView.centerXAnchor.constraint(equalTo: termometroTubo.centerXAnchor)
         ])
         
     }
@@ -118,7 +124,7 @@ class GameView : UIView {
         
         guard movement == nil else { return }
         
-        let targetPosition = Int.random(in: -135...135)
+        let targetPosition = Int.random(in: -140...0)
         targetPositionY?.constant = CGFloat(targetPosition)
         
         auxMovement = 1
@@ -136,7 +142,6 @@ class GameView : UIView {
           movement = nil
         if cursorPositionY!.constant >= targetPositionY!.constant - 10 && cursorPositionY!.constant <= targetPositionY!.constant + 10 {
             delegate?.won()
-            
         }
         else {
             delegate?.lost()
@@ -148,13 +153,13 @@ class GameView : UIView {
         
         if auxMovement == 0 {
             cursorPositionY!.constant += 1
-            if cursorPositionY!.constant == 135 {
+            if cursorPositionY!.constant == 0 {
                 auxMovement = 1
             }
         }
         else {
             cursorPositionY!.constant -= 1
-            if cursorPositionY!.constant == -135 {
+            if cursorPositionY!.constant == -140 {
                 auxMovement = 0
             }
         }
