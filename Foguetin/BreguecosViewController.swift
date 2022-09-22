@@ -1,9 +1,3 @@
-//
-//  BreguecosViewController.swift
-//  Foguetin
-//
-//  Created by aaav on 12/09/22.
-//
 import UIKit
 
 class BreguecosViewController : UIViewController{
@@ -15,26 +9,21 @@ class BreguecosViewController : UIViewController{
     
     lazy var viewpopUpWindo: PopUpWindoW = {
         let view = PopUpWindoW()
-        view.layer.cornerRadius = 5.0
         view.delegate = self
+        view.layer.borderColor = UIColor(red: 147/255, green: 21/255, blue: 36/255, alpha: 1).cgColor
         return view
     }()
     
     let visualEffetctView: UIVisualEffectView = {
-        let blurEffect = UIBlurEffect(style: .light)
+        let blurEffect = UIBlurEffect(style: .dark)
         let view = UIVisualEffectView(effect: blurEffect)
         return view
     }()
-    
-    
+
     override func viewDidLoad() {
-        view.backgroundColor = UIColor(red: 0, green: 0.051, blue: 0.165, alpha: 1)
-        
         setupViewsHierarchy()
         setupViewsAttributes()
         setupConstraints()
-        
-        
     }
     
     func setupViewsHierarchy() {
@@ -43,15 +32,15 @@ class BreguecosViewController : UIViewController{
         view.addSubview(cockpitTopContainer)
         view.addSubview(collectionViewBreguecos)
         
-        
         cockpitTopContainer.addSubview(cockpitTop)
         cockpitTopContainer.addSubview(label)
-        
     }
     
     func setupViewsAttributes() {
+        view.backgroundColor = UIColor(red: 0, green: 0.051, blue: 0.165, alpha: 1)
+        
         label.text = "BREGUECOS"
-        label.textColor = .white
+        label.textColor = UIColor(red: 0/255, green: 221/255, blue: 35/255, alpha: 1)
         
         cockpitTop.contentMode = .scaleToFill
         cockpitBottom.contentMode = .scaleToFill
@@ -65,10 +54,8 @@ class BreguecosViewController : UIViewController{
         collectionViewBreguecos.collectionViewLayout = layout
         collectionViewBreguecos.backgroundColor = .clear
         collectionViewBreguecos.register(BreguecosCollectionViewCell.self, forCellWithReuseIdentifier: BreguecosCollectionViewCell.identifier)
-        
-        
-        visualEffetctView.alpha = 0.9
-        
+
+        visualEffetctView.alpha = 0.7
     }
     
     func setupConstraints() {
@@ -97,8 +84,8 @@ class BreguecosViewController : UIViewController{
         collectionViewBreguecos.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             collectionViewBreguecos.topAnchor.constraint(equalTo: cockpitTopContainer.bottomAnchor, constant: 30),
-            collectionViewBreguecos.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -80),
-            collectionViewBreguecos.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 70),
+            collectionViewBreguecos.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -70),
+            collectionViewBreguecos.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 60),
             collectionViewBreguecos.bottomAnchor.constraint(equalTo: cockpitBottom.topAnchor)
         ])
         
@@ -107,7 +94,7 @@ class BreguecosViewController : UIViewController{
             cockpitBottom.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             cockpitBottom.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             cockpitBottom.heightAnchor.constraint(equalToConstant: 60),
-            cockpitBottom.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+            cockpitBottom.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 30)
         ])
         
     }
@@ -131,8 +118,8 @@ extension BreguecosViewController: UICollectionViewDelegate, UICollectionViewDat
         NSLayoutConstraint.activate([
             viewpopUpWindo.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             viewpopUpWindo.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-            viewpopUpWindo.heightAnchor.constraint(equalToConstant: view.frame.width - 64),
-            viewpopUpWindo.widthAnchor.constraint(equalToConstant: view.frame.width - 64)
+            viewpopUpWindo.heightAnchor.constraint(equalToConstant: view.frame.width - 50),
+            viewpopUpWindo.widthAnchor.constraint(equalToConstant: view.frame.width - 58)
         ])
         
         visualEffetctView.translatesAutoresizingMaskIntoConstraints = false
