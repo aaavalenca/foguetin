@@ -157,3 +157,21 @@ class GameView : UIView {
    
     
 }
+
+
+
+// MARK: - Preview
+#if DEBUG
+import SwiftUI
+
+@available(iOS 13, *)
+struct ViewController_Preview_Game: PreviewProvider {
+    static var previews: some View {
+        // view controller using programmatic UI
+        Group {
+            GameView().showPreview().previewDevice("iPhone 11")
+            //            ViewController().showPreview().previewDevice("iPhone 11").previewInterfaceOrientation(.landscapeLeft)
+        }
+    }
+}
+#endif

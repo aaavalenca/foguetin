@@ -10,20 +10,21 @@ import UIKit
 class GuacamoleView: UIView {
     
     
-    let button0 = UIButton()
-    let button1 = UIButton()
-    let button2 = UIButton()
-    let button3 = UIButton()
-    let button4 = UIButton()
-    let button5 = UIButton()
-    let button6 = UIButton()
-    let button7 = UIButton()
-    let button8 = UIButton()
-    let button9 = UIButton()
-    let button10 = UIButton()
-    let button11 = UIButton()
+    let button0 = MoleButton()
+    let button1 = MoleButton()
+    let button2 = MoleButton()
+    let button3 = MoleButton()
+    let button4 = MoleButton()
+    let button5 = MoleButton()
+    let button6 = MoleButton()
+    let button7 = MoleButton()
+    let button8 = MoleButton()
+    let button9 = MoleButton()
+    let button10 = MoleButton()
+    let button11 = MoleButton()
     let alienView = UIImageView()
     let timerLabel = UILabel()
+    
     
     let stackallViews = UIStackView()
     let stack02Buttons = UIStackView()
@@ -76,25 +77,26 @@ class GuacamoleView: UIView {
     
     func setViewsAttributes () {
         
-        stackallViews.backgroundColor = .systemOrange
-        backgroundColor = .white
-        stack02Buttons.backgroundColor = .black
-        stack68Buttons.backgroundColor = .black
-        stack35Buttons.backgroundColor = .black
-        stack911Buttons.backgroundColor = .black
-        timerLabel.backgroundColor = .green
-        button0.backgroundColor = .darkGray
-        button1.backgroundColor = .darkGray
-        button2.backgroundColor = .darkGray
-        button3.backgroundColor = .darkGray
-        button4.backgroundColor = .darkGray
-        button5.backgroundColor = .darkGray
-        button6.backgroundColor = .darkGray
-        button7.backgroundColor = .darkGray
-        button8.backgroundColor = .darkGray
-        button9.backgroundColor = .darkGray
-        button10.backgroundColor = .darkGray
-        button11.backgroundColor = .darkGray
+        self.backgroundColor =  UIColor(red: 0.098, green: 0.584, blue: 0.098, alpha: 1)
+        stackallViews.backgroundColor = UIColor(red: 0.098, green: 0.584, blue: 0.098, alpha: 1)
+        self.backgroundColor = UIColor(red: 0.098, green: 0.584, blue: 0.098, alpha: 1)
+        stack02Buttons.backgroundColor =  UIColor(red: 0.098, green: 0.584, blue: 0.098, alpha: 1)
+        stack68Buttons.backgroundColor =  UIColor(red: 0.098, green: 0.584, blue: 0.098, alpha: 1)
+        stack35Buttons.backgroundColor =  UIColor(red: 0.098, green: 0.584, blue: 0.098, alpha: 1)
+        stack911Buttons.backgroundColor =  UIColor(red: 0.098, green: 0.584, blue: 0.098, alpha: 1)
+        timerLabel.backgroundColor =  UIColor(red: 0.098, green: 0.584, blue: 0.098, alpha: 1)
+        button0.setHole()
+        button1.setHole()
+        button2.setHole()
+        button3.setHole()
+        button4.setHole()
+        button5.setHole()
+        button6.setHole()
+        button7.setHole()
+        button8.setHole()
+        button9.setHole()
+        button10.setHole()
+        button11.setHole()
         
         stackallViews.axis = .vertical
         stackallViews.alignment = .fill
@@ -216,44 +218,44 @@ class GuacamoleView: UIView {
     @objc func changeAlienPosition () {
         alienPosition = Int.random(in: 0...11)
         
-        button0.backgroundColor = .darkGray
-        button1.backgroundColor = .darkGray
-        button2.backgroundColor = .darkGray
-        button3.backgroundColor = .darkGray
-        button4.backgroundColor = .darkGray
-        button5.backgroundColor = .darkGray
-        button6.backgroundColor = .darkGray
-        button7.backgroundColor = .darkGray
-        button8.backgroundColor = .darkGray
-        button9.backgroundColor = .darkGray
-        button10.backgroundColor = .darkGray
-        button11.backgroundColor = .darkGray
+        button0.setHole()
+        button1.setHole()
+        button2.setHole()
+        button3.setHole()
+        button4.setHole()
+        button5.setHole()
+        button6.setHole()
+        button7.setHole()
+        button8.setHole()
+        button9.setHole()
+        button10.setHole()
+        button11.setHole()
         
         switch alienPosition {
         case 0:
-            button0.backgroundColor = .cyan
+            button0.setMole()
         case 1:
-            button1.backgroundColor = .cyan
+            button1.setMole()
         case 2:
-            button2.backgroundColor = .cyan
+            button2.setMole()
         case 3:
-            button3.backgroundColor = .cyan
+            button3.setMole()
         case 4:
-            button4.backgroundColor = .cyan
+            button4.setMole()
         case 5:
-            button5.backgroundColor = .cyan
+            button5.setMole()
         case 6:
-            button6.backgroundColor = .cyan
+            button6.setMole()
         case 7:
-            button7.backgroundColor = .cyan
+            button7.setMole()
         case 8:
-            button8.backgroundColor = .cyan
+            button8.setMole()
         case 9:
-            button9.backgroundColor = .cyan
+            button9.setMole()
         case 10:
-            button10.backgroundColor = .cyan
+            button10.setMole()
         case 11:
-            button11.backgroundColor = .cyan
+            button11.setMole()
             
             
             
@@ -264,3 +266,21 @@ class GuacamoleView: UIView {
     
     
 }
+
+
+
+// MARK: - Preview
+#if DEBUG
+import SwiftUI
+
+@available(iOS 13, *)
+struct ViewController_Preview_Guacamole: PreviewProvider {
+    static var previews: some View {
+        // view controller using programmatic UI
+        Group {
+            GuacamoleView().showPreview().previewDevice("iPhone 11")
+            //            ViewController().showPreview().previewDevice("iPhone 11").previewInterfaceOrientation(.landscapeLeft)
+        }
+    }
+}
+#endif
