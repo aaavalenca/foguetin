@@ -41,6 +41,11 @@ class BreguecosCollectionViewCell: UICollectionViewCell {
         ])
     }
     
+    func configure(cadeado : UIImage){
+        self.imageView.image = cadeado
+    }
+    
+    
 }
 
 // MARK: - Preview

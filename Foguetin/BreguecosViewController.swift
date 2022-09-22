@@ -2,10 +2,17 @@ import UIKit
 
 class BreguecosViewController : UIViewController{
     let label = UILabel(frame: CGRect(x: 50, y:100, width: 200, height: 20))
-    let cockpitTop = UIImageView(image: UIImage(named: "bregueco-cockpit-top"))
+    let cockpitTop = UIImageView(image: UIImage(named: "bregueco-cockpit"))
     let cockpitBottom = UIImageView(image: UIImage(named: "bregueco-cockpit-bottom"))
     let cockpitTopContainer = UIView()
     let collectionViewBreguecos = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
+    
+    let cadeados = [UIImage(),
+                   UIImage(named: "cadeadoAmarelo"),
+                   UIImage(named: "cadeadoAzul"),
+                   UIImage(named: "cadeadoLaranja"),
+                   UIImage()
+                   ]
     
     lazy var viewpopUpWindo: PopUpWindoW = {
         let view = PopUpWindoW()
@@ -31,7 +38,7 @@ class BreguecosViewController : UIViewController{
         view.addSubview(cockpitBottom)
         view.addSubview(cockpitTopContainer)
         view.addSubview(collectionViewBreguecos)
-        
+
         cockpitTopContainer.addSubview(cockpitTop)
         cockpitTopContainer.addSubview(label)
     }
@@ -102,11 +109,12 @@ class BreguecosViewController : UIViewController{
 
 extension BreguecosViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 3
+        return cadeados.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: BreguecosCollectionViewCell.identifier, for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: BreguecosCollectionViewCell.identifier, for: indexPath) as! BreguecosCollectionViewCell
+        cell.configure(cadeado: cadeados[indexPath.row] ?? UIImage())
         return cell
     }
     
