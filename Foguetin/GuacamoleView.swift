@@ -85,6 +85,7 @@ class GuacamoleView: UIView {
         stack35Buttons.backgroundColor =  UIColor(red: 0.098, green: 0.584, blue: 0.098, alpha: 1)
         stack911Buttons.backgroundColor =  UIColor(red: 0.098, green: 0.584, blue: 0.098, alpha: 1)
         timerLabel.backgroundColor =  UIColor(red: 0.098, green: 0.584, blue: 0.098, alpha: 1)
+        timerLabel.font = UIFont.systemFont(ofSize: 70)
         button0.setHole()
         button1.setHole()
         button2.setHole()

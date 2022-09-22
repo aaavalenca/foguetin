@@ -9,12 +9,16 @@ import UIKit
 
 class CreditosViewController : UIViewController{
     
+    let loseView = LoseView()
+    
     override func viewDidLoad() {
+        
         view.backgroundColor = UIColor(red: 0, green: 0.051, blue: 0.165, alpha: 1)
+        
         
         //só para marcar
         let label = UILabel(frame: CGRect(x: 50, y:100, width: 200, height: 20))
-        view.addSubview(label)
+        self.view = loseView
         label.text = "CREDITOS"
         label.textColor = .white
         

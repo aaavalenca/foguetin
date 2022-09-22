@@ -15,7 +15,6 @@ class BreguecosViewController : UIViewController{
     let betesgaMedal = UserDefaults.standard
     
     let label = UILabel(frame: CGRect(x: 50, y:100, width: 200, height: 20))
-
     
     override func viewDidLoad() {
 

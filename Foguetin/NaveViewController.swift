@@ -72,7 +72,7 @@ class NaveViewController : UIViewController {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
         layout.itemSize = CGSize(width: 200, height: 200)
-        layout.minimumLineSpacing = 100
+        layout.minimumLineSpacing = 50
         collectionView.collectionViewLayout = layout
         collectionView.register(PlanetCollectionViewCell.self, forCellWithReuseIdentifier: PlanetCollectionViewCell.identifier)
 
