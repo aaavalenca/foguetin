@@ -25,6 +25,8 @@ class GuacamoleView: UIView {
     let alienView = UIImageView()
     let timerLabel = UILabel()
     
+    let winView = WinView()
+    let loseView = WinView()
     
     let stackallViews = UIStackView()
     let stack02Buttons = UIStackView()
@@ -195,21 +197,27 @@ class GuacamoleView: UIView {
     
     @objc func buttonTapped(sender: UIButton) {
         if String(alienPosition) == sender.accessibilityLabel {
-            print("ganhou")
-        }
-        else
-        {
-            print ("perdeu")
+            self.addSubview(winView)
+            winView.translatesAutoresizingMaskIntoConstraints = false
+            NSLayoutConstraint.activate([
+                winView.topAnchor.constraint(equalTo: self.topAnchor),
+                winView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+                winView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+                winView.bottomAnchor.constraint(equalTo: self.bottomAnchor)
+            ])
         }
     }
     
     @objc func updateTimerLabel () {
         if currentTime == 0 {
-            timerLabel.text = "the end"
-            timer?.invalidate()
-              timer = nil
-            alienPositionTimer?.invalidate()
-              alienPositionTimer = nil
+            self.addSubview(loseView)
+            loseView.translatesAutoresizingMaskIntoConstraints = false
+            NSLayoutConstraint.activate([
+                loseView.topAnchor.constraint(equalTo: self.topAnchor),
+                loseView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+                loseView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+                loseView.bottomAnchor.constraint(equalTo: self.bottomAnchor)
+            ])
             return
         }
         currentTime -= 1

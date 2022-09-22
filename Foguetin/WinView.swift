@@ -23,12 +23,10 @@ class WinView: UIView {
     let vinganca = WinLoseButton()
     let pegar = WinLoseButton()
     
-    let ground = UIImageView(image: UIImage(named: "chao"))
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        self.backgroundColor = .blue
+        self.backgroundColor = .purple
         setViewsHierarchy()
         setViewsAttributes()
         setConstraints()
@@ -36,9 +34,12 @@ class WinView: UIView {
 
     }
     
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    
     func setViewsHierarchy(){
-        self.addSubview(ground)
-
         let animation = UIImage.animatedImage(with: danca, duration: 0.7)
         let imageView : UIImageView = UIImageView(image: animation)
         self.addSubview(imageView)
@@ -49,37 +50,14 @@ class WinView: UIView {
             imageView.centerYAnchor.constraint(equalTo: self.centerYAnchor),
             ])
         
-        self.addSubview(stackView)
         self.addSubview(pegar)
-//        stackView.addArrangedSubview(desistir)
-//        stackView.addArrangedSubview(vinganca)
 
     }
     func setViewsAttributes(){
-        stackView.spacing = 30
-        stackView.distribution = .fillProportionally
-
-//        desistir.setDesistir()
-//        vinganca.setVinganca()
         pegar.setPegar()
         
     }
     func setConstraints(){
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-//            stackView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor),
-            stackView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 40),
-            stackView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -40),
-            stackView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -10)
-        ])
-        
-        ground.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            ground.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor),
-            ground.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor),
-            ground.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor)
-        ])
-        
         pegar.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
 //            ground.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor),
@@ -91,14 +69,19 @@ class WinView: UIView {
     }
     
     func setupAdditionalConfiguration(){
-        
+//        pegar.addTarget(self, action: #selector(previousPage), for: .touchUpInside)
     }
 
     
+//    @objc func returnToShip(sender: UIButton) {
+//        self.window?.rootViewController?.dismiss(animated: true, completion: nil)
+//    }
+//    
+//    @objc func goToGame(sender: UIButton) {
+//        
+//    }
     
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+    
 
 
 }

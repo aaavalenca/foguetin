@@ -16,16 +16,13 @@ class LoseView: UIView {
     
     let stackView = UIStackView()
 
-    let desistir = WinLoseButton()
+    @objc let desistir = WinLoseButton()
     let vinganca = WinLoseButton()
-    let pegar = WinLoseButton()
-    
-    let ground = UIImageView(image: UIImage(named: "chao2"))
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        self.backgroundColor = .blue
+        self.backgroundColor = .purple
         setViewsHierarchy()
         setViewsAttributes()
         setConstraints()
@@ -34,8 +31,6 @@ class LoseView: UIView {
     }
     
     func setViewsHierarchy(){
-        self.addSubview(ground)
-
         let animation = UIImage.animatedImage(with: danca, duration: 0.3)
         let imageView : UIImageView = UIImageView(image: animation)
         self.addSubview(imageView)
@@ -47,7 +42,6 @@ class LoseView: UIView {
             ])
         
         self.addSubview(stackView)
-        self.addSubview(pegar)
         stackView.addArrangedSubview(desistir)
         stackView.addArrangedSubview(vinganca)
 
@@ -68,21 +62,20 @@ class LoseView: UIView {
             stackView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -40),
             stackView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -10)
         ])
-        
-        ground.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            ground.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor),
-            ground.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor),
-            ground.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor)
-        ])
-        
     }
     
     func setupAdditionalConfiguration(){
-        
+        vinganca.addTarget(self, action: #selector(voltarJogo), for: .touchUpInside)
+        desistir.addTarget(self, action: #selector(voltarNave), for: .touchUpInside)
     }
 
+    @objc func voltarNave(sender: UIButton) {
+        self.window?.rootViewController?.dismiss(animated: true, completion: nil)
+    }
     
+    @objc func voltarJogo(sender: UIButton) {
+        
+    }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
