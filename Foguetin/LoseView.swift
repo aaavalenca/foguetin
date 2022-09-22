@@ -16,6 +16,8 @@ class LoseView: UIView {
     
     let stackView = UIStackView()
 
+    weak var delegate : LoseViewDelegate?
+    
     @objc let desistir = WinLoseButton()
     let vinganca = WinLoseButton()
     
@@ -69,11 +71,13 @@ class LoseView: UIView {
         desistir.addTarget(self, action: #selector(voltarNave), for: .touchUpInside)
     }
 
-    @objc func voltarNave(sender: UIButton) {
-        self.window?.rootViewController?.dismiss(animated: true, completion: nil)
-    }
     
     @objc func voltarJogo(sender: UIButton) {
+        delegate?.goNave()
+    }
+    
+    @objc func voltarNave(sender: UIButton) {
+        delegate?.goNave()
         
     }
     

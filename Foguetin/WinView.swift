@@ -23,6 +23,8 @@ class WinView: UIView {
     let vinganca = WinLoseButton()
     let pegar = WinLoseButton()
     
+    weak var delegate: WinViewDelegate?
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -60,8 +62,6 @@ class WinView: UIView {
     func setConstraints(){
         pegar.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-//            ground.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor),
-//            ground.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor),
             pegar.centerXAnchor.constraint(equalTo: self.centerXAnchor),
             pegar.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor, constant: -10)
         ])
@@ -69,17 +69,13 @@ class WinView: UIView {
     }
     
     func setupAdditionalConfiguration(){
-//        pegar.addTarget(self, action: #selector(previousPage), for: .touchUpInside)
+        pegar.addTarget(self, action: #selector(recompensa), for: .touchUpInside)
     }
 
     
-//    @objc func returnToShip(sender: UIButton) {
-//        self.window?.rootViewController?.dismiss(animated: true, completion: nil)
-//    }
-//    
-//    @objc func goToGame(sender: UIButton) {
-//        
-//    }
+    @objc func recompensa(sender: UIButton) {
+        delegate?.goBreguecos()
+    }
     
     
 

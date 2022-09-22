@@ -18,6 +18,12 @@ class StoryViewController: UIViewController {
     let continuar = UIButton(configuration: .filled())
     let stackView = UIStackView()
     
+    let gameJP = GameView()
+    let guacamole = GuacamoleView()
+    
+    let winView = WinView()
+    let loseView = LoseView()
+    
     var textStatus = true
     var mission : [String] = ["", ""]
     
@@ -59,10 +65,7 @@ class StoryViewController: UIViewController {
         dogView.frame = CGRect(x: 0, y: 0, width: 192, height: 403)
         self.view.addSubview(stackView)
         self.view.addSubview(story)
-//        story.backgroundColor = .red
         
-//        stackView.addArrangedSubview(voltar)
-//        stackView.addArrangedSubview(continuar)
         stackView.addArrangedSubview(goBack)
         stackView.addArrangedSubview(goOn)
 
@@ -185,9 +188,9 @@ class StoryViewController: UIViewController {
         if (numStory == 1){
             print("ASTEROIDE")
         } else if (numStory == 2){
-            self.view = NaveViewController().gameJP
+            self.view = gameJP
         } else {
-            self.view = NaveViewController().guacamole
+            self.view = guacamole
         }
     }
     
@@ -205,6 +208,25 @@ class StoryViewController: UIViewController {
         mission[1] = "Tente acertá-la\nno momento em que\nsair do buraco."
         }
         story.text = mission[0]
+    }
+    
+}
+
+extension StoryViewController : LoseViewDelegate, WinViewDelegate, GameViewDelegate {
+    func won() {
+        self.view = winView
+    }
+    
+    func lost() {
+        self.view = loseView
+    }
+    
+    func goBreguecos() {
+        dismiss(animated: true)
+    }
+    
+    func goNave() {
+        dismiss(animated: true)
     }
     
 }

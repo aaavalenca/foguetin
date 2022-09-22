@@ -16,7 +16,6 @@ class ViewController: UIViewController, UIScrollViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         width = self.view.frame.size.width
         height = self.view.frame.size.height
         self.view = opening
@@ -50,6 +49,7 @@ extension ViewController: OpeningScrollViewDelegate {
     func getReady() {
         print("Onboarding")
     }
+
 }
 
 // MARK: - Preview

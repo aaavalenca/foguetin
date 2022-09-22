@@ -9,6 +9,11 @@
 /* Begin PBXBuildFile section */
 		8A00F84D28D260CB00B8F5EC /* PlanetCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A00F84C28D260CB00B8F5EC /* PlanetCollectionViewCell.swift */; };
 		8A00F84F28D34D4B00B8F5EC /* StarsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A00F84E28D34D4B00B8F5EC /* StarsView.swift */; };
+		8A064D9F28DCE12A00D9EFF8 /* WinViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A064D9E28DCE12A00D9EFF8 /* WinViewDelegate.swift */; };
+		8A064DA128DCE1D300D9EFF8 /* LoseViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A064DA028DCE1D300D9EFF8 /* LoseViewDelegate.swift */; };
+		8A064DA328DCE94700D9EFF8 /* BreguecosCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A064DA228DCE94700D9EFF8 /* BreguecosCollectionViewCell.swift */; };
+		8A064DA528DCE9C600D9EFF8 /* PopUpWindoW.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A064DA428DCE9C600D9EFF8 /* PopUpWindoW.swift */; };
+		8A064DA728DCEF3900D9EFF8 /* GameViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A064DA628DCEF3900D9EFF8 /* GameViewDelegate.swift */; };
 		8A22B9EF28CF7DB0000A7E4E /* BreguecosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A22B9EE28CF7DB0000A7E4E /* BreguecosViewController.swift */; };
 		8A22B9F128CF7DC1000A7E4E /* CreditosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A22B9F028CF7DC1000A7E4E /* CreditosViewController.swift */; };
 		8A22B9F528CFCA0C000A7E4E /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A22B9F428CFCA0C000A7E4E /* MainTabBarController.swift */; };
@@ -36,6 +41,11 @@
 /* Begin PBXFileReference section */
 		8A00F84C28D260CB00B8F5EC /* PlanetCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetCollectionViewCell.swift; sourceTree = "<group>"; };
 		8A00F84E28D34D4B00B8F5EC /* StarsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarsView.swift; sourceTree = "<group>"; };
+		8A064D9E28DCE12A00D9EFF8 /* WinViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WinViewDelegate.swift; sourceTree = "<group>"; };
+		8A064DA028DCE1D300D9EFF8 /* LoseViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoseViewDelegate.swift; sourceTree = "<group>"; };
+		8A064DA228DCE94700D9EFF8 /* BreguecosCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreguecosCollectionViewCell.swift; sourceTree = "<group>"; };
+		8A064DA428DCE9C600D9EFF8 /* PopUpWindoW.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpWindoW.swift; sourceTree = "<group>"; };
+		8A064DA628DCEF3900D9EFF8 /* GameViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewDelegate.swift; sourceTree = "<group>"; };
 		8A22B9EE28CF7DB0000A7E4E /* BreguecosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreguecosViewController.swift; sourceTree = "<group>"; };
 		8A22B9F028CF7DC1000A7E4E /* CreditosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditosViewController.swift; sourceTree = "<group>"; };
 		8A22B9F428CFCA0C000A7E4E /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
@@ -96,16 +106,21 @@
 				8A6E6A3528CF62B8001677AB /* SceneDelegate.swift */,
 				8A6E6A3728CF62B8001677AB /* ViewController.swift */,
 				8A22B9F428CFCA0C000A7E4E /* MainTabBarController.swift */,
+				8A064DA228DCE94700D9EFF8 /* BreguecosCollectionViewCell.swift */,
 				8A6E6A4B28CF7C81001677AB /* NaveViewController.swift */,
 				8A22B9EE28CF7DB0000A7E4E /* BreguecosViewController.swift */,
+				8A064DA428DCE9C600D9EFF8 /* PopUpWindoW.swift */,
 				8A22B9F028CF7DC1000A7E4E /* CreditosViewController.swift */,
 				8A944E8228D3DFAA00319D60 /* StoryViewController.swift */,
 				8AF9354D28DBB38000DF26F8 /* GuacamoleView.swift */,
 				8AF9354528D4BE0800DF26F8 /* OpeningScrollView.swift */,
 				8AF9354B28DB7FE700DF26F8 /* GameView.swift */,
 				8AF9355328DCC02E00DF26F8 /* WinView.swift */,
+				8A064D9E28DCE12A00D9EFF8 /* WinViewDelegate.swift */,
+				8A064DA028DCE1D300D9EFF8 /* LoseViewDelegate.swift */,
 				8AF9355728DCD0F500DF26F8 /* LoseView.swift */,
 				8A00F84E28D34D4B00B8F5EC /* StarsView.swift */,
+				8A064DA628DCEF3900D9EFF8 /* GameViewDelegate.swift */,
 				8AF9354728D79EA700DF26F8 /* OpeningScrollViewDelegate.swift */,
 				8A00F84C28D260CB00B8F5EC /* PlanetCollectionViewCell.swift */,
 				8AF9355128DCB73D00DF26F8 /* MoleButton.swift */,
@@ -193,6 +208,7 @@
 			files = (
 				8A00F84F28D34D4B00B8F5EC /* StarsView.swift in Sources */,
 				8A22B9EF28CF7DB0000A7E4E /* BreguecosViewController.swift in Sources */,
+				8A064DA128DCE1D300D9EFF8 /* LoseViewDelegate.swift in Sources */,
 				8AF9355028DCA87000DF26F8 /* CustomButton.swift in Sources */,
 				8A22B9F528CFCA0C000A7E4E /* MainTabBarController.swift in Sources */,
 				8A6E6A4C28CF7C81001677AB /* NaveViewController.swift in Sources */,
@@ -206,13 +222,17 @@
 				8A6E6A4928CF696C001677AB /* UIView+Preview.swift in Sources */,
 				8A00F84D28D260CB00B8F5EC /* PlanetCollectionViewCell.swift in Sources */,
 				8AF9355228DCB73D00DF26F8 /* MoleButton.swift in Sources */,
+				8A064D9F28DCE12A00D9EFF8 /* WinViewDelegate.swift in Sources */,
 				8A6E6A4A28CF696C001677AB /* UIViewController+Preview.swift in Sources */,
 				8AF9354628D4BE0800DF26F8 /* OpeningScrollView.swift in Sources */,
+				8A064DA328DCE94700D9EFF8 /* BreguecosCollectionViewCell.swift in Sources */,
 				8A6E6A3428CF62B8001677AB /* AppDelegate.swift in Sources */,
 				8A944E8328D3DFAA00319D60 /* StoryViewController.swift in Sources */,
+				8A064DA528DCE9C600D9EFF8 /* PopUpWindoW.swift in Sources */,
 				8A6E6A3628CF62B8001677AB /* SceneDelegate.swift in Sources */,
 				8AF9354828D79EA700DF26F8 /* OpeningScrollViewDelegate.swift in Sources */,
 				8AF9355828DCD0F500DF26F8 /* LoseView.swift in Sources */,
+				8A064DA728DCEF3900D9EFF8 /* GameViewDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

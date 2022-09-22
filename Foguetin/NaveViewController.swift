@@ -201,8 +201,6 @@ extension NaveViewController : UICollectionViewDelegate, UICollectionViewDataSou
     
 }
 
-
-
 // MARK: - Preview
 #if DEBUG
 import SwiftUI
