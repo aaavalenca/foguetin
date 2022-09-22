@@ -75,6 +75,7 @@ class WinView: UIView {
     
     @objc func recompensa(sender: UIButton) {
         delegate?.goBreguecos()
+        delegate?.resetStoryView()
     }
     
     

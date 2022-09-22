@@ -7,4 +7,5 @@
 
 protocol WinViewDelegate : AnyObject {
     func goBreguecos()
+    func resetStoryView()
 }

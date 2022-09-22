@@ -7,6 +7,8 @@ class BreguecosViewController : UIViewController{
     let cockpitTopContainer = UIView()
     let collectionViewBreguecos = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
     
+    let defaults = UserDefaults.standard
+    
     let cadeados = [UIImage(),
                    UIImage(named: "cadeadoAmarelo"),
                    UIImage(named: "cadeadoAzul"),
@@ -28,6 +30,11 @@ class BreguecosViewController : UIViewController{
     }()
 
     override func viewDidLoad() {
+        
+        defaults.set(true, forKey: "amarelo")
+        defaults.set(true, forKey: "azul")
+        defaults.set(true, forKey: "laranja")
+        
         setupViewsHierarchy()
         setupViewsAttributes()
         setupConstraints()

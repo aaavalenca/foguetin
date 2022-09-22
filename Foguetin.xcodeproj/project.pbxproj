@@ -14,6 +14,7 @@
 		8A064DA328DCE94700D9EFF8 /* BreguecosCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A064DA228DCE94700D9EFF8 /* BreguecosCollectionViewCell.swift */; };
 		8A064DA528DCE9C600D9EFF8 /* PopUpWindoW.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A064DA428DCE9C600D9EFF8 /* PopUpWindoW.swift */; };
 		8A064DA728DCEF3900D9EFF8 /* GameViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A064DA628DCEF3900D9EFF8 /* GameViewDelegate.swift */; };
+		8A064DAA28DD045A00D9EFF8 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A064DA828DD045A00D9EFF8 /* GameScene.swift */; };
 		8A22B9EF28CF7DB0000A7E4E /* BreguecosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A22B9EE28CF7DB0000A7E4E /* BreguecosViewController.swift */; };
 		8A22B9F128CF7DC1000A7E4E /* CreditosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A22B9F028CF7DC1000A7E4E /* CreditosViewController.swift */; };
 		8A22B9F528CFCA0C000A7E4E /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A22B9F428CFCA0C000A7E4E /* MainTabBarController.swift */; };
@@ -46,6 +47,7 @@
 		8A064DA228DCE94700D9EFF8 /* BreguecosCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreguecosCollectionViewCell.swift; sourceTree = "<group>"; };
 		8A064DA428DCE9C600D9EFF8 /* PopUpWindoW.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpWindoW.swift; sourceTree = "<group>"; };
 		8A064DA628DCEF3900D9EFF8 /* GameViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewDelegate.swift; sourceTree = "<group>"; };
+		8A064DA828DD045A00D9EFF8 /* GameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		8A22B9EE28CF7DB0000A7E4E /* BreguecosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreguecosViewController.swift; sourceTree = "<group>"; };
 		8A22B9F028CF7DC1000A7E4E /* CreditosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditosViewController.swift; sourceTree = "<group>"; };
 		8A22B9F428CFCA0C000A7E4E /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
@@ -132,6 +134,7 @@
 				8A6E6A4128CF62B9001677AB /* Info.plist */,
 				8A6E6A4728CF696C001677AB /* UIView+Preview.swift */,
 				8A6E6A4828CF696C001677AB /* UIViewController+Preview.swift */,
+				8A064DA828DD045A00D9EFF8 /* GameScene.swift */,
 			);
 			path = Foguetin;
 			sourceTree = "<group>";
@@ -232,6 +235,7 @@
 				8A6E6A3628CF62B8001677AB /* SceneDelegate.swift in Sources */,
 				8AF9354828D79EA700DF26F8 /* OpeningScrollViewDelegate.swift in Sources */,
 				8AF9355828DCD0F500DF26F8 /* LoseView.swift in Sources */,
+				8A064DAA28DD045A00D9EFF8 /* GameScene.swift in Sources */,
 				8A064DA728DCEF3900D9EFF8 /* GameViewDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

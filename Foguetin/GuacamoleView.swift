@@ -39,6 +39,8 @@ class GuacamoleView: UIView {
     var timer : Timer?
     var alienPositionTimer : Timer?
     
+    weak var delegate : GameViewDelegate?
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setViewsHierarchy()
@@ -197,27 +199,13 @@ class GuacamoleView: UIView {
     
     @objc func buttonTapped(sender: UIButton) {
         if String(alienPosition) == sender.accessibilityLabel {
-            self.addSubview(winView)
-            winView.translatesAutoresizingMaskIntoConstraints = false
-            NSLayoutConstraint.activate([
-                winView.topAnchor.constraint(equalTo: self.topAnchor),
-                winView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-                winView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-                winView.bottomAnchor.constraint(equalTo: self.bottomAnchor)
-            ])
+            delegate?.won()
         }
     }
     
     @objc func updateTimerLabel () {
         if currentTime == 0 {
-            self.addSubview(loseView)
-            loseView.translatesAutoresizingMaskIntoConstraints = false
-            NSLayoutConstraint.activate([
-                loseView.topAnchor.constraint(equalTo: self.topAnchor),
-                loseView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-                loseView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-                loseView.bottomAnchor.constraint(equalTo: self.bottomAnchor)
-            ])
+            delegate?.lost()
             return
         }
         currentTime -= 1

@@ -135,26 +135,10 @@ class GameView : UIView {
         movement?.invalidate()
           movement = nil
         if cursorPositionY!.constant >= targetPositionY!.constant - 10 && cursorPositionY!.constant <= targetPositionY!.constant + 10 {
-//            self.addSubview(winView)
-//            winView.translatesAutoresizingMaskIntoConstraints = false
-//            NSLayoutConstraint.activate([
-//                winView.topAnchor.constraint(equalTo: self.topAnchor),
-//                winView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-//                winView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-//                winView.bottomAnchor.constraint(equalTo: self.bottomAnchor)
-//            ])
             delegate?.won()
             
         }
         else {
-//            self.addSubview(xrloseView)
-//            loseView.translatesAutoresizingMaskIntoConstraints = false
-//            NSLayoutConstraint.activate([
-//                loseView.topAnchor.constraint(equalTo: self.topAnchor),
-//                loseView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-//                loseView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-//                loseView.bottomAnchor.constraint(equalTo: self.bottomAnchor)
-//            ])
             delegate?.lost()
         }
         

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SpriteKit
 
 class StoryViewController: UIViewController {
     
@@ -18,6 +19,8 @@ class StoryViewController: UIViewController {
     let continuar = UIButton(configuration: .filled())
     let stackView = UIStackView()
     
+    
+//    let flappy = GameScene()
     let gameJP = GameView()
     let guacamole = GuacamoleView()
     
@@ -55,7 +58,6 @@ class StoryViewController: UIViewController {
         dogAnimation.toValue = NSValue(cgPoint: CGPoint(x: dogView.center.x, y: dogView.center.y + 20))
         dogView.layer.add(dogAnimation, forKey: "position")
     }
-    
     
     func setupViewHierarchy(){
         self.view.addSubview(stars)
@@ -96,6 +98,11 @@ class StoryViewController: UIViewController {
         goOn.contentMode = .scaleAspectFit
         goBack.setVoltar()
         goBack.contentMode = .scaleAspectFit
+        
+        gameJP.delegate = self
+        guacamole.delegate = self
+        loseView.delegate = self
+        winView.delegate = self
         
     }
     
@@ -184,9 +191,20 @@ class StoryViewController: UIViewController {
     }
     
     @objc func goToGame(sender: UIButton) {
-        print(numStory)
         if (numStory == 1){
             print("ASTEROIDE")
+            
+//            if let view = self.view as! SKView? {
+////               let scene = GameScene(size: view.bounds.size)
+//               flappy.scaleMode = .aspectFill
+//               view.presentScene(flappy)
+//               view.ignoresSiblingOrder = true
+//               view.showsFPS = false
+//               view.showsNodeCount = false
+//               view.showsPhysics = false
+//
+//            }
+            
         } else if (numStory == 2){
             self.view = gameJP
         } else {
@@ -200,7 +218,7 @@ class StoryViewController: UIViewController {
         mission[0] = "Asteroides\nestão a caminho do\nplaneta Kaô!"
         mission[1] = "Chegue lá\na tempo de evacuar\nseus habitantes."
         } else if (numStory == 2){
-        print(numStory)
+        
         mission[0] = "A temperatura\ndo planeta Zo'és\nestá doida!"
         mission[1] = "Equilibre seu\ntermostato sempre\nque mudar."
         } else {
@@ -228,7 +246,9 @@ extension StoryViewController : LoseViewDelegate, WinViewDelegate, GameViewDeleg
     func goNave() {
         dismiss(animated: true)
     }
-    
+    func resetStoryView() {
+        
+    }
 }
 
 // MARK: - Preview
