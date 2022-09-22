@@ -5,7 +5,7 @@
 //
 //  Created by vko on 05/09/22.
 //
-import UIKit
+
 import SpriteKit
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
@@ -179,9 +179,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     func setupRocket() {
         
-        let rocketTextureA = SKTexture(imageNamed: "foguetin-1")
+        let rocketTextureA = SKTexture(imageNamed: "foguetin")
         rocketTextureA.filteringMode = .linear
-        let rocketTextureB = SKTexture(imageNamed: "foguetin-1")
+        let rocketTextureB = SKTexture(imageNamed: "foguetin")
         rocketTextureB.filteringMode = .linear
 
         let textureAnimation = SKAction.animate(with: [rocketTextureA, rocketTextureB], timePerFrame: 0.2)

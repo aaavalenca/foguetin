@@ -20,7 +20,7 @@ class StoryViewController: UIViewController {
     let stackView = UIStackView()
     
     
-    let flappy = GameScene()
+//    let flappy = GameScene()
     let gameJP = GameView()
     let guacamole = GuacamoleView()
     
@@ -36,17 +36,27 @@ class StoryViewController: UIViewController {
     let goBack = CustomButton()
     let goOn = CustomButton()
     
+
+
+override var prefersStatusBarHidden: Bool {
+    get {
+        return true
+    }
+}
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         self.view.backgroundColor = UIColor(red: 0, green: 0.051, blue: 0.165, alpha: 1)
 
         story.text = mission[0]
-        
         setupViewHierarchy()
         setupViewAttributes()
         setupConstraints()
         setupAdditionalConfiguration()
-        
     }
     
     override func viewDidLayoutSubviews() {
@@ -192,16 +202,17 @@ class StoryViewController: UIViewController {
     
     @objc func goToGame(sender: UIButton) {
         if (numStory == 1){
-            print("ASTEROIDE")
-            let skview = SKView()
-            self.view = skview
-//               let scene = GameScene(size: view.bounds.size)
-            flappy.scaleMode = .aspectFill
-            skview.presentScene(flappy)
-            skview.ignoresSiblingOrder = true
-            skview.showsFPS = false
-            skview.showsNodeCount = false
-            skview.showsPhysics = false
+            
+            if let view = self.view as! SKView? {
+               let scene = GameScene(size: view.bounds.size)
+               scene.scaleMode = .aspectFill
+               view.presentScene(scene)
+               view.ignoresSiblingOrder = true
+               view.showsFPS = false
+               view.showsNodeCount = false
+               view.showsPhysics = false
+
+            }
             
         } else if (numStory == 2){
             self.view = gameJP
@@ -239,10 +250,12 @@ extension StoryViewController : LoseViewDelegate, WinViewDelegate, GameViewDeleg
     }
     
     func goBreguecos() {
+        self.view = UIView()
         dismiss(animated: true)
     }
     
     func goNave() {
+        self.view = UIView()
         dismiss(animated: true)
     }
     func resetStoryView() {

@@ -129,12 +129,12 @@
 				8AF9354328D4A83300DF26F8 /* ArrowButton.swift */,
 				8AF9354F28DCA87000DF26F8 /* CustomButton.swift */,
 				8AF9355528DCCD6500DF26F8 /* WinLoseButton.swift */,
+				8A064DA828DD045A00D9EFF8 /* GameScene.swift */,
 				8A6E6A3C28CF62B9001677AB /* Assets.xcassets */,
 				8A6E6A3E28CF62B9001677AB /* LaunchScreen.storyboard */,
 				8A6E6A4128CF62B9001677AB /* Info.plist */,
 				8A6E6A4728CF696C001677AB /* UIView+Preview.swift */,
 				8A6E6A4828CF696C001677AB /* UIViewController+Preview.swift */,
-				8A064DA828DD045A00D9EFF8 /* GameScene.swift */,
 			);
 			path = Foguetin;
 			sourceTree = "<group>";
