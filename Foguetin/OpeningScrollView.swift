@@ -11,9 +11,10 @@ class OpeningScrollView: UIScrollView {
     
     let backgroundImage = UIImageView(image: UIImage(named: "abertura"))
         
-    let jumpButton = UIButton(configuration: .filled())
-
-    let readyButton = UIButton(configuration: .filled())
+//    let jumpButton = UIButton(configuration: .filled())
+    let jump = CustomButton()
+    
+    let readyButton = CustomButton()
     
     let foguetin = UIImageView(image: UIImage(named: "foguetin"))
     let up = UIImageView(image: UIImage(systemName: "hand.point.up.fill"))
@@ -44,7 +45,8 @@ class OpeningScrollView: UIScrollView {
     
     func setupViewHierarchy(){
         self.addSubview(backgroundImage)
-        self.addSubview(jumpButton)
+//        self.addSubview(jumpButton)
+        self.addSubview(jump)
         self.addSubview(readyButton)
         backgroundImage.addSubview(foguetin)
         backgroundImage.addSubview(up)
@@ -54,12 +56,15 @@ class OpeningScrollView: UIScrollView {
     func setupViewAttributes()
     {
         
-        jumpButton.tintColor = .red
-        jumpButton.setTitle("PULAR\nAPRESENTAÇÃO", for: .normal)
-        jumpButton.titleLabel?.textAlignment = .center
+//        jumpButton.tintColor = .red
+//        jumpButton.setTitle("PULAR\nAPRESENTAÇÃO", for: .normal)
+//        jumpButton.titleLabel?.textAlignment = .center
+        jump.setPular()
         
-        readyButton.tintColor = .blue
-        readyButton.setTitle("PREPARAR", for: .normal)
+//        readyButton.tintColor = .blue
+//        readyButton.setTitle("PREPARAR", for: .normal)
+        
+        readyButton.setContinuar()
         
         foguetin.frame = CGRect(x: backgroundImage.frame.midX - 30, y: 320, width: 57, height: 181)
         
@@ -77,10 +82,16 @@ class OpeningScrollView: UIScrollView {
             backgroundImage.bottomAnchor.constraint(equalTo: self.bottomAnchor)
             ])
         
-        jumpButton.translatesAutoresizingMaskIntoConstraints = false
+//        jumpButton.translatesAutoresizingMaskIntoConstraints = false
+//        NSLayoutConstraint.activate([
+//            jumpButton.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+//            jumpButton.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -190)
+//            ])
+        
+        jump.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            jumpButton.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            jumpButton.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -190)
+            jump.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+            jump.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -190)
             ])
         
         readyButton.translatesAutoresizingMaskIntoConstraints = false
@@ -135,7 +146,7 @@ class OpeningScrollView: UIScrollView {
     }
     
     func setupAdditionalConfiguration() {
-        jumpButton.addTarget(self, action: #selector(tappedButton), for: .touchUpInside)
+        jump.addTarget(self, action: #selector(tappedButton), for: .touchUpInside)
         
         readyButton.addTarget(self, action: #selector(tappedButton2), for: .touchUpInside)
     }

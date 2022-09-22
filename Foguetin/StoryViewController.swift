@@ -24,7 +24,8 @@ class StoryViewController: UIViewController {
     var leftButton = ArrowButton()
     var rightButton = ArrowButton()
 
-
+    let goBack = CustomButton()
+    let goOn = CustomButton()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,12 +60,15 @@ class StoryViewController: UIViewController {
         self.view.addSubview(stackView)
         self.view.addSubview(story)
 //        story.backgroundColor = .red
-        stackView.addArrangedSubview(voltar)
-        stackView.addArrangedSubview(continuar)
         
+//        stackView.addArrangedSubview(voltar)
+//        stackView.addArrangedSubview(continuar)
+        stackView.addArrangedSubview(goBack)
+        stackView.addArrangedSubview(goOn)
+
         self.view.addSubview(leftButton)
         self.view.addSubview(rightButton)
-
+        
         
     }
     
@@ -83,6 +87,12 @@ class StoryViewController: UIViewController {
         leftButton.setLeft()
         rightButton.setRight()
 
+        stackView.distribution = .fillProportionally
+        
+        goOn.setContinuar()
+        goOn.contentMode = .scaleAspectFit
+        goBack.setVoltar()
+        goBack.contentMode = .scaleAspectFit
         
     }
     
@@ -143,9 +153,9 @@ class StoryViewController: UIViewController {
     }
     
     func setupAdditionalConfiguration() {
-        voltar.addTarget(self, action:#selector(returnToShip), for: .touchUpInside)
+        goBack.addTarget(self, action:#selector(returnToShip), for: .touchUpInside)
         
-        continuar.addTarget(self, action: #selector(goToGame), for: .touchUpInside)
+        goOn.addTarget(self, action: #selector(goToGame), for: .touchUpInside)
         
         leftButton.addTarget(self, action: #selector(previousPage), for: .touchUpInside)
         
