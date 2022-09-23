@@ -11,7 +11,7 @@ import SpriteKit
 class StoryViewController: UIViewController {
     
     var numStory = 0
-    let stars = StarsView()
+    let stars = UIImageView(image: UIImage(named: "fundo"))
     let dogView = UIImageView(image: UIImage(named: "cachorra"))
     let balao = UIImageView(image: UIImage(named: "balao"))
     var story = UILabel()
@@ -58,20 +58,9 @@ override var prefersStatusBarHidden: Bool {
         setupConstraints()
         setupAdditionalConfiguration()
     }
-    
-    override func viewDidLayoutSubviews() {
-        let dogAnimation = CABasicAnimation(keyPath: "position")
-        dogAnimation.duration = 2
-        dogAnimation.repeatCount = 1000
-        dogAnimation.autoreverses = true
-        dogAnimation.fromValue = NSValue(cgPoint: CGPoint(x: dogView.center.x, y: dogView.center.y - 20))
-        dogAnimation.toValue = NSValue(cgPoint: CGPoint(x: dogView.center.x, y: dogView.center.y + 20))
-        dogView.layer.add(dogAnimation, forKey: "position")
-    }
-    
+
     func setupViewHierarchy(){
         self.view.addSubview(stars)
-        stars.configure(width: Int(self.view.bounds.maxY), height: Int(self.view.bounds.maxX))
         self.view.addSubview(balao)
         self.view.addSubview(dogView)
         dogView.frame = CGRect(x: 0, y: 0, width: 192, height: 403)
@@ -170,6 +159,15 @@ override var prefersStatusBarHidden: Bool {
             stackView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor, constant: -60)
         ])
         
+        stars.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            stars.topAnchor.constraint(equalTo: self.view.topAnchor),
+            stars.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
+            stars.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
+            stars.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
+            
+        ])
+        
     }
     
     func setupAdditionalConfiguration() {
@@ -245,13 +243,11 @@ extension StoryViewController : LoseViewDelegate, WinViewDelegate, GameViewDeleg
     }
     
     func goBreguecos() {
-        print("oi")
         self.view = UIView()
         dismiss(animated: true)
     }
     
     func goNave() {
-        print("ola")
         self.view = UIView()
         dismiss(animated: true)
     }
