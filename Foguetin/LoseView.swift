@@ -73,7 +73,7 @@ class LoseView: UIView {
 
     
     @objc func voltarJogo(sender: UIButton) {
-        delegate?.goNave()
+        delegate?.goGame()
     }
     
     @objc func voltarNave(sender: UIButton) {

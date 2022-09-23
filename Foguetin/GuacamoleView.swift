@@ -199,19 +199,27 @@ class GuacamoleView: UIView {
     }
     
     @objc func buttonTapped(sender: UIButton) {
-        if String(alienPosition) == sender.accessibilityLabel {
-            delegate?.won()
+            if String(alienPosition) == sender.accessibilityLabel {
+                delegate?.won()
+                currentTime = 10
+                timer?.invalidate()
+                alienPositionTimer?.invalidate()
+                timerLabel.text = String(currentTime)
+            }
         }
-    }
-    
-    @objc func updateTimerLabel () {
-        if currentTime == 0 {
-            delegate?.lost()
-            return
+        
+        @objc func updateTimerLabel () {
+            if currentTime == 0 {
+                delegate?.lost()
+                currentTime = 10
+                timer?.invalidate()
+                alienPositionTimer?.invalidate()
+                timerLabel.text = String(currentTime)
+                return
+            }
+            currentTime -= 1
+            timerLabel.text = String(currentTime)
         }
-        currentTime -= 1
-        timerLabel.text = String(currentTime)
-    }
     
     @objc func changeAlienPosition () {
         alienPosition = Int.random(in: 0...11)

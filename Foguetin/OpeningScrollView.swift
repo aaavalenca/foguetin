@@ -156,7 +156,7 @@ class OpeningScrollView: UIScrollView {
     }
     
     @objc func tappedButton2(sendeR: UIButton){
-        myDelegate?.getReady()
+        myDelegate?.goToShip()
     }
 
     

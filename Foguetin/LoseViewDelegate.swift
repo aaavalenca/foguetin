@@ -8,4 +8,5 @@
 
 protocol LoseViewDelegate : AnyObject {
     func goNave()
+    func goGame()
 }

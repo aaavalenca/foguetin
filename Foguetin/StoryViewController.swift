@@ -245,15 +245,26 @@ extension StoryViewController : LoseViewDelegate, WinViewDelegate, GameViewDeleg
     }
     
     func goBreguecos() {
+        print("oi")
         self.view = UIView()
         dismiss(animated: true)
     }
     
     func goNave() {
+        print("ola")
         self.view = UIView()
         dismiss(animated: true)
     }
-    func resetStoryView() {
+    
+    func goGame() {
+        if (numStory == 1){
+            print("joga meteoro de novo")
+        } else if (numStory == 2){
+            self.view = gameJP
+        } else {
+            self.view = guacamole
+            guacamole.startGame()
+        }
         
     }
 }
