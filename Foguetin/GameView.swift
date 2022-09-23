@@ -3,7 +3,6 @@ import UIKit
 class GameView : UIView {
     
     let stopButton = UIButton()
-    let startButton = UIButton()
     let termometroTubo = UIImageView(image: UIImage(named: "termometroTubo"))
     let termometroBase = UIImageView(image: UIImage(named: "termometroBase"))
     let planetaDerretendo = UIImageView(image: UIImage(named: "planetaDerretendo"))
@@ -35,7 +34,6 @@ class GameView : UIView {
     
     private func setViewsHierarchy() {
         addSubview(stopButton)
-        addSubview(startButton)
         addSubview(planetaDerretendo)
         addSubview(termometroBase)
         addSubview(termometroTubo)
@@ -48,9 +46,6 @@ class GameView : UIView {
         stopButton.backgroundColor = .blue
         stopButton.setTitle("Stop", for: .normal)
         stopButton.layer.cornerRadius = 25
-        startButton.backgroundColor = .red
-        startButton.setTitle("Start", for: .normal)
-        startButton.layer.cornerRadius = 25
         
         termometroTubo.layer.cornerRadius = 10
         targetView.backgroundColor = .systemYellow
@@ -60,7 +55,6 @@ class GameView : UIView {
     
     func setContraints() {
         stopButton.translatesAutoresizingMaskIntoConstraints = false
-        startButton.translatesAutoresizingMaskIntoConstraints = false
         termometroTubo.translatesAutoresizingMaskIntoConstraints = false
         timeLabel.translatesAutoresizingMaskIntoConstraints = false
         targetView.translatesAutoresizingMaskIntoConstraints = false
@@ -81,14 +75,10 @@ class GameView : UIView {
         
         //Botões
         NSLayoutConstraint.activate([
-            startButton.heightAnchor.constraint(equalToConstant: 50),
-            startButton.widthAnchor.constraint(equalToConstant: 50),
             stopButton.heightAnchor.constraint(equalToConstant: 50),
             stopButton.widthAnchor.constraint(equalToConstant: 50),
-            startButton.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -20),
-            stopButton.bottomAnchor.constraint(equalTo: startButton.topAnchor, constant: -20),
-            startButton.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -20),
-            stopButton.centerXAnchor.constraint(equalTo: startButton.centerXAnchor)
+            stopButton.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -20),
+            stopButton.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -20),
         ])
         
         //Views
@@ -116,13 +106,13 @@ class GameView : UIView {
     }
     
     func setupAdditionalConfiguration () {
-        startButton.addTarget(self, action: #selector(tappedStart), for: .touchUpInside)
         stopButton.addTarget(self, action: #selector(tappedStop), for: .touchUpInside)
+        start()
     }
     
-    @objc func tappedStart(sender: UIButton) {
+    func start() {
         
-        guard movement == nil else { return }
+        movement?.invalidate()
         
         let targetPosition = Int.random(in: -140...0)
         targetPositionY?.constant = CGFloat(targetPosition)
@@ -142,9 +132,11 @@ class GameView : UIView {
           movement = nil
         if cursorPositionY!.constant >= targetPositionY!.constant - 10 && cursorPositionY!.constant <= targetPositionY!.constant + 10 {
             delegate?.won()
+            start()
         }
         else {
             delegate?.lost()
+            start()
         }
         
     }
