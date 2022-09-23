@@ -20,8 +20,7 @@ class StoryViewController: UIViewController {
     let continuar = UIButton(configuration: .filled())
     let stackView = UIStackView()
     
-    
-//    let flappy = GameScene()
+    var scene: GameScene?
     let gameJP = GameView()
     let guacamole = GuacamoleView()
     
@@ -38,9 +37,6 @@ class StoryViewController: UIViewController {
     let goOn = CustomButton()
     
     var delegate : sendTabBarInfo?
-
-    
-    var scene: GameScene?
 
 
     
@@ -106,6 +102,7 @@ override var prefersStatusBarHidden: Bool {
         
         gameJP.delegate = self
         guacamole.delegate = self
+        
         loseView.delegate = self
         winView.delegate = self
         
@@ -213,8 +210,8 @@ override var prefersStatusBarHidden: Bool {
             if let view = self.view as? SKView, scene == nil {
                 let scene = GameScene(size: view.bounds.size)
                 view.presentScene(scene)
-                self.scene = scene
                 }
+            
         } else if (numStory == 2){
             self.view = gameJP
         } else {

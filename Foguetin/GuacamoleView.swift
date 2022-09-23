@@ -199,14 +199,15 @@ class GuacamoleView: UIView {
     }
     
     @objc func buttonTapped(sender: UIButton) {
-            if String(alienPosition) == sender.accessibilityLabel {
-                delegate?.won()
-                currentTime = 10
-                timer?.invalidate()
-                alienPositionTimer?.invalidate()
-                timerLabel.text = String(currentTime)
+                if String(alienPosition) == sender.accessibilityLabel {
+                    delegate?.won()
+                    currentTime = 10
+                    timer?.invalidate()
+                    alienPositionTimer?.invalidate()
+                    timerLabel.text = String(currentTime)
+                    UserDefaults.standard.set(true, forKey: "guacamoleWon")
+                }
             }
-        }
         
         @objc func updateTimerLabel () {
             if currentTime == 0 {

@@ -24,6 +24,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var bestScoreLabelNode: SKLabelNode!
     let userDefaults: UserDefaults = UserDefaults.standard
     
+    
     override func didMove(to view: SKView) {
         
         physicsWorld.gravity = CGVector(dx: 0, dy: -6)
@@ -248,6 +249,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             rocket.run(roll, completion:{
                 self.rocket.speed = 0
             })
+            
+
+            
+//            self.removeFromParent()
+//            self.view?.presentScene(nil)
+
         }
     }
     

@@ -9,7 +9,7 @@ class BreguecosViewController : UIViewController{
     
     let defaults = UserDefaults.standard
     
-    let cadeados = [UIImage(),
+    var cadeados = [UIImage(),
                    UIImage(named: "cadeadoAmarelo"),
                    UIImage(named: "cadeadoAzul"),
                    UIImage(named: "cadeadoLaranja"),
@@ -39,6 +39,25 @@ class BreguecosViewController : UIViewController{
         setupViewsAttributes()
         setupConstraints()
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+            
+        if UserDefaults.standard.bool(forKey: "fogueteWon") == true {
+            cadeados.remove(at: 1)
+            cadeados.insert(UIImage(named: "recompensaCdAmarelo"), at: 1)
+        }
+            
+        if UserDefaults.standard.bool(forKey: "termometroWon") == true {
+            cadeados.remove(at: 2)
+            cadeados.insert(UIImage(named: "recompensaCdAmarelo"), at: 2)
+        }
+        
+        if UserDefaults.standard.bool(forKey: "guacamoleWon") == true {
+            cadeados.remove(at: 3)
+            cadeados.insert(UIImage(named: "recompensaCdAmarelo"), at: 3)
+        }
+            viewDidLoad()
+        }
     
     func setupViewsHierarchy() {
         view.addSubview(cockpitTop)
