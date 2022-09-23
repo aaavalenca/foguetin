@@ -9,6 +9,8 @@ class GameView : UIView {
     let timeLabel = UILabel()
     let targetView = UIView()
     let cursorView = UIView()
+    let background = UIImageView(image: UIImage(named: "background"))
+    let buttonBG = UIView()
     
     let winView = WinView()
     let loseView = LoseView()
@@ -33,6 +35,8 @@ class GameView : UIView {
     }
     
     private func setViewsHierarchy() {
+        addSubview(background)
+        addSubview(buttonBG)
         addSubview(stopButton)
         addSubview(planetaDerretendo)
         addSubview(termometroBase)
@@ -44,16 +48,20 @@ class GameView : UIView {
     private func setViewsAttributes() {
         
         stopButton.backgroundColor = .blue
-        stopButton.setTitle("Stop", for: .normal)
-        stopButton.layer.cornerRadius = 25
+        stopButton.setTitle("Parar", for: .normal)
+        stopButton.layer.cornerRadius = 35
         
-        termometroTubo.layer.cornerRadius = 10
+        buttonBG.backgroundColor = .black
+        buttonBG.layer.cornerRadius = 40
+        
+        //termometroTubo.layer.cornerRadius = 10
         targetView.backgroundColor = .systemYellow
         cursorView.backgroundColor = .black
         
     }
     
     func setContraints() {
+        background.translatesAutoresizingMaskIntoConstraints = false
         stopButton.translatesAutoresizingMaskIntoConstraints = false
         termometroTubo.translatesAutoresizingMaskIntoConstraints = false
         timeLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -61,6 +69,7 @@ class GameView : UIView {
         cursorView.translatesAutoresizingMaskIntoConstraints = false
         planetaDerretendo.translatesAutoresizingMaskIntoConstraints = false
         termometroBase.translatesAutoresizingMaskIntoConstraints = false
+        buttonBG.translatesAutoresizingMaskIntoConstraints = false
         
         
         targetPositionY = targetView.centerYAnchor.constraint(equalTo: centerYAnchor, constant: -70)
@@ -75,14 +84,20 @@ class GameView : UIView {
         
         //Botões
         NSLayoutConstraint.activate([
-            stopButton.heightAnchor.constraint(equalToConstant: 50),
-            stopButton.widthAnchor.constraint(equalToConstant: 50),
-            stopButton.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -20),
+            stopButton.heightAnchor.constraint(equalToConstant: 70),
+            stopButton.widthAnchor.constraint(equalToConstant: 70),
+            stopButton.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -30),
             stopButton.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -20),
+            buttonBG.heightAnchor.constraint(equalToConstant: 80),
+            buttonBG.widthAnchor.constraint(equalToConstant: 80),
+            buttonBG.centerXAnchor.constraint(equalTo: stopButton.centerXAnchor),
+            buttonBG.centerYAnchor.constraint(equalTo: stopButton.centerYAnchor)
         ])
         
         //Views
         NSLayoutConstraint.activate([
+            background.bottomAnchor.constraint(equalTo: bottomAnchor),
+            background.leadingAnchor.constraint(equalTo: leadingAnchor),
             termometroTubo.trailingAnchor.constraint(equalTo: planetaDerretendo.trailingAnchor, constant: -45),
             termometroBase.topAnchor.constraint(equalTo: planetaDerretendo.topAnchor),
             termometroTubo.heightAnchor.constraint(equalToConstant: 203.7),
@@ -131,6 +146,7 @@ class GameView : UIView {
         movement?.invalidate()
           movement = nil
         if cursorPositionY!.constant >= targetPositionY!.constant - 10 && cursorPositionY!.constant <= targetPositionY!.constant + 10 {
+            UserDefaults.standard.set(true, forKey: "termometroWon")
             delegate?.won()
             start()
         }
@@ -160,21 +176,3 @@ class GameView : UIView {
    
     
 }
-
-
-
-// MARK: - Preview
-#if DEBUG
-import SwiftUI
-
-@available(iOS 13, *)
-struct ViewController_Preview_Game: PreviewProvider {
-    static var previews: some View {
-        // view controller using programmatic UI
-        Group {
-            GameView().showPreview().previewDevice("iPhone 11")
-            //            ViewController().showPreview().previewDevice("iPhone 11").previewInterfaceOrientation(.landscapeLeft)
-        }
-    }
-}
-#endif

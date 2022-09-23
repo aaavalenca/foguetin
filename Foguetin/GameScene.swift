@@ -250,11 +250,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 self.rocket.speed = 0
             })
             
-
+            view?.firstParent(ofType: UIViewController.self)?.dismiss(animated: true, completion: nil)
             
-//            self.removeFromParent()
-//            self.view?.presentScene(nil)
-
         }
     }
     
@@ -295,5 +292,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let bestScore = userDefaults.integer(forKey: "BEST")
         bestScoreLabelNode.text = "BEST Score:\(bestScore)"
         self.addChild(bestScoreLabelNode)
+    }
+}
+
+extension UIResponder {
+    func firstParent<T: UIResponder>(ofType type: T.Type ) -> T? {
+        return next as? T ?? next.flatMap { $0.firstParent(ofType: type) }
     }
 }

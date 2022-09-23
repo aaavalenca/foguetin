@@ -8,6 +8,9 @@
 import UIKit
 import SpriteKit
 
+protocol SecondViewControllerDelegate {
+   func sceneDismissed()
+}
 
 class StoryViewController: UIViewController {
     
@@ -38,6 +41,7 @@ class StoryViewController: UIViewController {
     
     var delegate : sendTabBarInfo?
 
+    var delegate2: SecondViewControllerDelegate?
 
     
 override var prefersStatusBarHidden: Bool {
@@ -49,6 +53,17 @@ override var prefersStatusBarHidden: Bool {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        if (isBeingDismissed || isMovingFromParent) {
+            print("perdeu, pai")
+            self.delegate2?.sceneDismissed()
+            self.navigationController?.popViewController(animated: true)
+            self.view = loseView
+
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {

@@ -30,34 +30,37 @@ class BreguecosViewController : UIViewController{
     }()
 
     override func viewDidLoad() {
-        
-        defaults.set(true, forKey: "amarelo")
-        defaults.set(true, forKey: "azul")
-        defaults.set(true, forKey: "laranja")
-        
         setupViewsHierarchy()
         setupViewsAttributes()
         setupConstraints()
     }
     
     override func viewDidAppear(_ animated: Bool) {
-            
+        
         if UserDefaults.standard.bool(forKey: "fogueteWon") == true {
             cadeados.remove(at: 1)
-            cadeados.insert(UIImage(named: "recompensaCdAmarelo"), at: 1)
+            cadeados.insert(UIImage(named: "shipBreg"), at: 1)
         }
             
         if UserDefaults.standard.bool(forKey: "termometroWon") == true {
+            
             cadeados.remove(at: 2)
-            cadeados.insert(UIImage(named: "recompensaCdAmarelo"), at: 2)
+            cadeados.insert(UIImage(named: "termBreg"), at: 2)
         }
         
         if UserDefaults.standard.bool(forKey: "guacamoleWon") == true {
+            
             cadeados.remove(at: 3)
-            cadeados.insert(UIImage(named: "recompensaCdAmarelo"), at: 3)
+            cadeados.insert(UIImage(named: "whackBreg"), at: 3)
         }
+        
+            collectionViewBreguecos.reloadData()
+
             viewDidLoad()
+
         }
+    
+    
     
     func setupViewsHierarchy() {
         view.addSubview(cockpitTop)

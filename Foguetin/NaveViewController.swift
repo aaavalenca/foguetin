@@ -9,6 +9,9 @@ import UIKit
 
 class NaveViewController : UIViewController {
 
+    let loseView = LoseView()
+    let winView = WinView()
+    
     let storyViewController = StoryViewController()
     
     let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
@@ -49,6 +52,8 @@ class NaveViewController : UIViewController {
         setupViewAttributes()
         setupConstraints()
         setupAdditionalConfiguration()
+        
+        storyViewController.delegate2 = self
     }
     
     func setupViewHierarchy(){
@@ -198,6 +203,14 @@ extension NaveViewController : UICollectionViewDelegate, UICollectionViewDataSou
             self.scrollToNearestVisibleCollectionViewCell()
         }
     }
+    
+}
+
+extension NaveViewController: SecondViewControllerDelegate{
+    func sceneDismissed() {
+        
+    }
+    
     
 }
 
