@@ -36,3 +36,15 @@
         }
         
     }
+
+extension MainTabBarController : WinViewDelegate {
+    func goBreguecos() {
+        
+    }
+    
+    func resetStoryView() {
+        self.selectedIndex = 0
+    }
+    
+    
+}

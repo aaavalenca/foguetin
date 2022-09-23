@@ -203,16 +203,11 @@ override var prefersStatusBarHidden: Bool {
     @objc func goToGame(sender: UIButton) {
         if (numStory == 1){
             
-            if let view = self.view as! SKView? {
-               let scene = GameScene(size: view.bounds.size)
-               scene.scaleMode = .aspectFill
-               view.presentScene(scene)
-               view.ignoresSiblingOrder = true
-               view.showsFPS = false
-               view.showsNodeCount = false
-               view.showsPhysics = false
-
-            }
+            let skView = self.view as! SKView
+            
+            let scene = GameScene(size: skView.frame.size)
+            
+            skView.presentScene(scene)
             
         } else if (numStory == 2){
             self.view = gameJP
