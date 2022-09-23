@@ -9,18 +9,44 @@ import UIKit
 
 class CreditosViewController : UIViewController{
     
-    let loseView = LoseView()
+    let danca = [
+                   UIImage(named: "17")!,
+                   UIImage(named: "18")!,
+                   UIImage(named: "19")!,
+                   UIImage(named: "20")!,
+                   UIImage(named: "21")!,
+                   UIImage(named: "22")!,
+                ]
+    
+    
+    let creditosView = UIImageView(image: UIImage(named: "creditos"))
     
     override func viewDidLoad() {
         
         view.backgroundColor = UIColor(red: 0, green: 0.051, blue: 0.165, alpha: 1)
+
+        let animation = UIImage.animatedImage(with: danca, duration: 0.7)
+        let imageView : UIImageView = UIImageView(image: animation)
+        self.view.addSubview(imageView)
+        
+        self.view.addSubview(imageView)
+        self.view.addSubview(creditosView)
+
+        creditosView.contentMode = .scaleAspectFit
+        creditosView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            creditosView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
+            creditosView.centerYAnchor.constraint(equalTo: self.view.centerYAnchor)
+        ])
         
         
-        //só para marcar
-        let label = UILabel(frame: CGRect(x: 50, y:100, width: 200, height: 20))
-        self.view = loseView
-        label.text = "CREDITOS"
-        label.textColor = .white
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            imageView.topAnchor.constraint(equalTo: self.view.topAnchor),
+            imageView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
+            imageView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
+            imageView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
+        ])
         
     }
 }

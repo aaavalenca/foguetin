@@ -1,0 +1,3 @@
+protocol sendTabBarInfo{
+    func pass()
+}

@@ -15,6 +15,7 @@
 		8A064DA528DCE9C600D9EFF8 /* PopUpWindoW.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A064DA428DCE9C600D9EFF8 /* PopUpWindoW.swift */; };
 		8A064DA728DCEF3900D9EFF8 /* GameViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A064DA628DCEF3900D9EFF8 /* GameViewDelegate.swift */; };
 		8A064DAA28DD045A00D9EFF8 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A064DA828DD045A00D9EFF8 /* GameScene.swift */; };
+		8A064DAF28DD39F200D9EFF8 /* sendTabBarInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A064DAE28DD39F200D9EFF8 /* sendTabBarInfo.swift */; };
 		8A22B9EF28CF7DB0000A7E4E /* BreguecosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A22B9EE28CF7DB0000A7E4E /* BreguecosViewController.swift */; };
 		8A22B9F128CF7DC1000A7E4E /* CreditosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A22B9F028CF7DC1000A7E4E /* CreditosViewController.swift */; };
 		8A22B9F528CFCA0C000A7E4E /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A22B9F428CFCA0C000A7E4E /* MainTabBarController.swift */; };
@@ -48,6 +49,7 @@
 		8A064DA428DCE9C600D9EFF8 /* PopUpWindoW.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpWindoW.swift; sourceTree = "<group>"; };
 		8A064DA628DCEF3900D9EFF8 /* GameViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewDelegate.swift; sourceTree = "<group>"; };
 		8A064DA828DD045A00D9EFF8 /* GameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
+		8A064DAE28DD39F200D9EFF8 /* sendTabBarInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sendTabBarInfo.swift; sourceTree = "<group>"; };
 		8A22B9EE28CF7DB0000A7E4E /* BreguecosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreguecosViewController.swift; sourceTree = "<group>"; };
 		8A22B9F028CF7DC1000A7E4E /* CreditosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditosViewController.swift; sourceTree = "<group>"; };
 		8A22B9F428CFCA0C000A7E4E /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
@@ -114,6 +116,7 @@
 				8A064DA428DCE9C600D9EFF8 /* PopUpWindoW.swift */,
 				8A22B9F028CF7DC1000A7E4E /* CreditosViewController.swift */,
 				8A944E8228D3DFAA00319D60 /* StoryViewController.swift */,
+				8A064DAE28DD39F200D9EFF8 /* sendTabBarInfo.swift */,
 				8AF9354D28DBB38000DF26F8 /* GuacamoleView.swift */,
 				8AF9354528D4BE0800DF26F8 /* OpeningScrollView.swift */,
 				8AF9354B28DB7FE700DF26F8 /* GameView.swift */,
@@ -221,6 +224,7 @@
 				8A22B9F128CF7DC1000A7E4E /* CreditosViewController.swift in Sources */,
 				8AF9354E28DBB38000DF26F8 /* GuacamoleView.swift in Sources */,
 				8AF9354428D4A83300DF26F8 /* ArrowButton.swift in Sources */,
+				8A064DAF28DD39F200D9EFF8 /* sendTabBarInfo.swift in Sources */,
 				8AF9355628DCCD6500DF26F8 /* WinLoseButton.swift in Sources */,
 				8A6E6A4928CF696C001677AB /* UIView+Preview.swift in Sources */,
 				8A00F84D28D260CB00B8F5EC /* PlanetCollectionViewCell.swift in Sources */,

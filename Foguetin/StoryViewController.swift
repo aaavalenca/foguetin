@@ -36,7 +36,7 @@ class StoryViewController: UIViewController {
     let goBack = CustomButton()
     let goOn = CustomButton()
     
-
+    var delegate : sendTabBarInfo?
 
 override var prefersStatusBarHidden: Bool {
     get {
@@ -244,6 +244,7 @@ extension StoryViewController : LoseViewDelegate, WinViewDelegate, GameViewDeleg
     
     func goBreguecos() {
         self.view = UIView()
+        delegate?.pass()
         dismiss(animated: true)
     }
     
