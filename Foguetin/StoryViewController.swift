@@ -8,6 +8,7 @@
 import UIKit
 import SpriteKit
 
+
 class StoryViewController: UIViewController {
     
     var numStory = 0
@@ -38,6 +39,11 @@ class StoryViewController: UIViewController {
     
     var delegate : sendTabBarInfo?
 
+    
+    var scene: GameScene?
+
+
+    
 override var prefersStatusBarHidden: Bool {
     get {
         return true
@@ -200,13 +206,15 @@ override var prefersStatusBarHidden: Bool {
     
     @objc func goToGame(sender: UIButton) {
         if (numStory == 1){
-            
-            let skView = self.view as! SKView
-            
-            let scene = GameScene(size: skView.frame.size)
-            
-            skView.presentScene(scene)
-            
+            super.loadView()
+            self.view = SKView()
+            self.view.bounds = UIScreen.main.bounds
+
+            if let view = self.view as? SKView, scene == nil {
+                let scene = GameScene(size: view.bounds.size)
+                view.presentScene(scene)
+                self.scene = scene
+                }
         } else if (numStory == 2){
             self.view = gameJP
         } else {
