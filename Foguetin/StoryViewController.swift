@@ -57,13 +57,11 @@ override var prefersStatusBarHidden: Bool {
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        if (isBeingDismissed || isMovingFromParent) {
-            print("perdeu, pai")
-            self.delegate2?.sceneDismissed()
-            self.navigationController?.popViewController(animated: true)
-            self.view = loseView
-
-        }
+//        if (isBeingDismissed || isMovingFromParent) {
+//            print("perdeu, pai")
+//            self.delegate2?.sceneDismissed()
+//            self.navigationController?.popViewController(animated: true)
+//        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
